@@ -1,4 +1,4 @@
-a {color:#26a69a}
+a {color:orangered}
 a:not(.btn):not(.noeffect):hover {color:#26a69a}
 a:not(.btn):not(.noeffect):after {background-color:#26a69a}
 .btn, button, [type=button], [type=submit] {background-color:#26a69a; color:white}
