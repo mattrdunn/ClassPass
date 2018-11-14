@@ -31,3 +31,9 @@ div.main_content i.changed {
 div.main_content span.likers_list {
   color: #7777cc;
 }
+
+.replies {
+  margin: 0 0 5px 50px;
+  padding: 10px;
+  border-top: 1px solid darkgray;
+}
