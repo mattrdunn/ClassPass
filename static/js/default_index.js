@@ -16,7 +16,7 @@ var app = function() {
     var enumerate = function(v) { var k=0; return v.map(function(e) {e._idx = k++;});};
 
     self.show_form = function() {
-        if(self.vue.showForm==true) {
+        if(self.vue.showForm) {
             self.vue.showForm = false;
         }
         else {
@@ -26,7 +26,7 @@ var app = function() {
 
     self.editing_post = function(id) {
         var p = self.vue.post_list[self.vue.post_list.length-id];
-        if(p.editing==true) {
+        if(p.editing) {
             p.editing = false;
         }
         else {
@@ -35,7 +35,6 @@ var app = function() {
     };
 
     self.edit_content = function(id) {
-        //$.web2py.disableElement($("#edit-post-btn"));
         var p = self.vue.post_list[self.vue.post_list.length-id];
         $.post(edit_post_url,
             {
@@ -43,27 +42,12 @@ var app = function() {
                 post_title: p.post_title,
                 post_content: p.post_content
             }
-            // function(data) {
-            //     $.web2py.enableElement($("#edit-post-btn"));
-            // }
+
         );
         self.editing_post(id);
     };
 
-    self.edit_reply_content = function(id, reply_id) {
-        //$.web2py.disableElement($("#edit-post-btn"));
-        $.post(edit_reply_url,
-            {
-                post_id: id,
-                reply_id: reply_id,
-                reply_content: self.vue.reply_list[reply_id-1].reply_content
-            }
-            // function(data) {
-            //     $.web2py.enableElement($("#edit-post-btn"));
-            // }
-        );
-        self.editing_reply(reply_id);
-    }
+
 
     self.add_post = function () {
         $.web2py.disableElement($("#add-post"));
@@ -153,17 +137,6 @@ var app = function() {
         );
     };
 
-    self.get_replies = function(id) {
-        $.getJSON(get_reply_list_url, {post_id: id},
-            function(data) {
-                // I am assuming here that the server gives me a nice list
-                // of posts, all ready for display.
-                self.vue.reply_list = data.reply_list;
-                // Post-processing.
-                self.process_replies();
-            }
-        );
-    };
 
     self.process_posts = function() {
         // This function is used to post-process posts, after the list has been modified
@@ -181,60 +154,71 @@ var app = function() {
         });
     };
 
-    self.process_replies = function() {
-        enumerate(self.vue.reply_list);
-        // We initialize the smile status to match the like.
-        self.vue.reply_list.map(function (e) {
-            Vue.set(e, 'editing', false); // true when editing reply
+
+    /* Course functions */
+
+    self.add_course = function ()
+    {
+        // Make a copy of the title & content
+        var sent_title = self.vue.course_title;
+        var sent_code = self.vue.course_code;
+
+        if(sent_title === "" || send_name === "")
+        {
+            alert("Please add a course title or course name to your submission");
+        }
+        else
+        {
+            $.post(add_course_url,
+                // Data we will send
+                {
+                    course_title: self.vue.course_title,
+                    course_code: self.vue.course_code
+                },
+                function(data)
+                {
+                    // After this succeeds, we will clear the fields
+                    self.vue.course_title = "";
+                    self.vue.course_code = "";
+
+                    let new_course = {
+                        course_code: sent_code,
+                        course_title: sent_title
+                    };
+
+                    self.vue.course_list.unshift(new_course);
+
+                    self.process_course();
+
+                }
+            );
+        }
+    };
+
+    self.process_courses = function ()
+    {
+        enumerate(self.vue.course_list);
+
+        // Initialization of course variables
+        self.vue.course_list.map(function (e)
+        {
+
         });
     };
 
-    self.get_counts = function(id) {
-        var p = self.vue.post_list[self.vue.post_list.length-id];
-        $.get(get_thumb_count, {
-                post_id: id
-            }, function(data){
-                p.count = data;
-        });
-    }
+    self.get_courses = function ()
+    {
+        $.getJSON(get_course_list_url,
+            function(data)
+            {
+                self.vue.course_list = data.course_list;
 
-    self.handle_thumb_click = function(iconClicked, id) {
-        // The like status is toggled; the UI is not changed.
-        var p = self.vue.post_list[self.vue.post_list.length-id];
-        if(iconClicked=='u') {
-            if(p.thumb==null || p.thumb=='d') {
-                p.thumb = iconClicked;
+                // Post-processing
+                self.process_courses();
             }
-            else { // deselect up thumb
-                p.thumb = null;
-            }
-        }
-        else { // iconClicked = 'd'
-            if(p.thumb==null || p.thumb=='u') {
-                p.thumb = iconClicked;
-            }
-            else { // deselect down thumb
-                p.thumb = null;
-            }
-        }
-
-            // We need to post back the change to the server.
-            $.post(set_thumb_url, {
-                post_id: id,
-                thumb: p.thumb
-            }); // Nothing to do upon completion.
+        );
     };
 
-    // Smile change code.
-    self.thumb_mouseover = function (thumbState, id) {
-        var p = self.vue.post_list[self.vue.post_list.length-id];
-        p._thumb = thumbState;
-    };
-
-    self.thumb_mouseout = function (id) {
-        var p = self.vue.post_list[self.vue.post_list.length-id];
-        p._thumb = null;
-    };
 
     // Complete as needed.
     self.vue = new Vue({
@@ -244,8 +228,10 @@ var app = function() {
         data: {
             form_title: "",
             form_content: "",
+            course_title: "",
+            course_code: "",
             post_list: [],
-            reply_list: [],
+            course_list: [],
             showForm: false,
         },
         methods: {
@@ -253,15 +239,10 @@ var app = function() {
             add_reply: self.add_reply,
             show_form: self.show_form,
             editing_post: self.editing_post,
-            editing_reply: self.editing_reply,
             edit_content: self.edit_content,
-            edit_reply_content: self.edit_reply_content,
-            handle_thumb_click: self.handle_thumb_click,
-            thumb_mouseover: self.thumb_mouseover,
-            thumb_mouseout: self.thumb_mouseout,
-            get_counts: self.get_counts,
-            show_replies: self.show_replies,
-            show_reply_form: self.show_reply_form,
+            add_course: self.add_course,
+            process_courses: self.process_courses,
+            get_courses: self.get_courses
         }
 
     });

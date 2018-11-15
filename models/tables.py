@@ -30,18 +30,23 @@ db.define_table('post',
                 )
 
 
-# Thumbs
-db.define_table('thumb',
-                Field('user_email'), # The user who thumbed, easier to just write the email here.
-                Field('post_id', 'reference post'), # The thumbed post
-                Field('thumb_state'), # This can be 'u' for up or 'd' for down, or None for... None.
+# Course Table
+db.define_table('course',
+                Field('course_code', 'text'),
+                Field('course_title'),
+                Field('difficulty_rating', 'integer', default=None),
+                Field('work_avg', 'integer', default=None),
+                Field('post_count', "integer", default=0),
+                Field('attendance', 'boolean', default=None),
+                Field('webcast', 'boolean', default=None)
                 )
 
-
-# Replies
-db.define_table('reply',
-                Field('post_id', 'reference post'),
-                Field('reply_author', default=get_user_email()),
-                Field('reply_content', 'text'),
-                Field('reply_time', 'datetime', update=get_current_time())
+# Tip table
+db.define_table('tip',
+                Field('course_code', 'reference course'),
+                Field('tip_author', default=get_user_email()),
+                Field('tip_professor', 'text'),
+                Field('tip_content', 'text'),
+                Field('tip_time', default=get_current_time()),
+                Field('tip_quarter', 'text', default=None)
                 )

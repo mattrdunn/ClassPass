@@ -127,3 +127,37 @@ def edit_reply():
         reply_content=new_reply_content
     )
     return "ok"
+
+# Course functions
+
+@auth.requires_signature()
+def add_class():
+    class_code = db.course.insert(
+        course_title=request.vars.course_title,
+        course_code=request.vars.course_code,
+    )
+
+    return response.json(dict(class_code=class_code))
+
+
+def get_course_list():
+    results = []
+
+    # Not logged in functionality
+    rows = db().select(db.course.ALL)
+    if auth.user is None:
+        for row in rows:
+            results.append(dict(
+                course_code=row.course_code,
+                course_title=row.course_title,
+            ))
+    else:
+        # Logged in functionality
+        for row in rows:
+            results.append(dict(
+                course_code=row.course_code,
+                course_title=row.course_title,
+            ))
+
+    return response.json(dict(course_list=results))
+
