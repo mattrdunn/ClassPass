@@ -1,8 +1,8 @@
 a {color:orangered}
-a:not(.btn):not(.noeffect):hover {color:#26a69a}
-a:not(.btn):not(.noeffect):after {background-color:#26a69a}
-.btn, button, [type=button], [type=submit] {background-color:#26a69a; color:white}
-.progress .determinate {background-color:#26a69a}
-.progress .indeterminate {background-color:#26a69a}
-.tags > span {background-color: #26a69a}
-.tags.dismissible > span.off:hover {background-color:#26a69a}
+a:not(.btn):not(.noeffect):hover {color:orangered}
+a:not(.btn):not(.noeffect):after {background-color:orangered}
+.btn, button, [type=button], [type=submit] {background-color:orangered; color:white}
+.progress .determinate {background-color:orangered}
+.progress .indeterminate {background-color:orangered}
+.tags > span {background-color: orangered}
+.tags.dismissible > span.off:hover {background-color:orangered}
