@@ -1,5 +1,3 @@
-# Here go your api methods.
-
 
 @auth.requires_signature()
 def add_post():
