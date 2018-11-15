@@ -34,38 +34,6 @@ var app = function() {
         }
     };
 
-    self.editing_reply = function(id) {
-        var r = self.vue.reply_list[id-1];
-        if(r.editing==true) {
-            r.editing = false;
-        }
-        else {
-            r.editing = true;
-        }
-    };
-
-    self.show_replies = function(id) {
-        var p = self.vue.post_list[self.vue.post_list.length-id];
-        if(p.replies==true) {
-            p.replies = false;
-            p.reply_form = false;
-        }
-        else {
-            p.replies = true;
-            self.get_replies(id);
-        }
-    };
-
-    self.show_reply_form = function(id) {
-        var p = self.vue.post_list[self.vue.post_list.length-id];
-        if(p.reply_form==true) {
-            p.reply_form = false;
-        }
-        else {
-            p.reply_form = true;
-        }
-    };
-
     self.edit_content = function(id) {
         //$.web2py.disableElement($("#edit-post-btn"));
         var p = self.vue.post_list[self.vue.post_list.length-id];
