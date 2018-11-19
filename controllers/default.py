@@ -51,4 +51,3 @@ def call():
     """
     return service()
 
-

@@ -1,6 +1,6 @@
-main {
+#main-home {
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
     flex-wrap: wrap;
 }
 
