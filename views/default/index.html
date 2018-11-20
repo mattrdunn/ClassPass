@@ -23,8 +23,11 @@
                 <div class="class_info">
                     <p>${course.course_title}</p>
                     <p>Contributions: ${course.post_count}</p>
-                    <i class="fas fa-dizzy"></i>
-                    <i class="fas fa-pray"></i>
+                    <p style="display:inline">Difficulty:</p>
+                    <div style="display:inline" v-for="i in course.difficulty_rating">
+                        <i class="fas fa-pray"></i>
+                    </div>
+
                 </div>
             </div>
         </div>

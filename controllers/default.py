@@ -54,8 +54,6 @@ def call():
 
 @auth.requires_login()
 def add_class_redirect():
-    db.course.post_count.readable = False
-    db.course.post_count.writeable = False
     form = SQLFORM(db.course)
     # We can process the form.  This will check that the request is a POST,
     # and also perform validation, but in this case there is no validation.

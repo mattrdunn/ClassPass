@@ -52,7 +52,7 @@ var app = function() {
 
                     let new_course = {
                         course_code: sent_code,
-                        course_title: sent_title
+                        course_title: sent_title,
                     };
 
                     self.vue.course_list.unshift(new_course);
@@ -81,8 +81,7 @@ var app = function() {
             function(data)
             {
                 self.vue.course_list = data.course_list;
-                console.log(self.vue.course_list.course_code);
-                console.log(self.vue.course_list.course_title);
+                console.log(data);
                 // Course-processing
                 self.process_courses();
             }
@@ -100,6 +99,7 @@ var app = function() {
             form_content: "",
             course_title: "",
             course_code: "",
+            post_count: 0,
             course_list: [],
             showForm: false,
         },

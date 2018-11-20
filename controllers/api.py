@@ -151,6 +151,8 @@ def get_course_list():
                 id=row.id,
                 course_code=row.course_code,
                 course_title=row.course_title,
+                post_count=row.post_count,
+                difficulty_rating=row.difficulty_rating,
             ))
     else:
         # Logged in functionality
@@ -159,6 +161,8 @@ def get_course_list():
                 id=row.id,
                 course_code=row.course_code,
                 course_title=row.course_title,
+                post_count=row.post_count,
+                difficulty_rating=row.difficulty_rating,
             ))
 
     return response.json(dict(course_list=results))
