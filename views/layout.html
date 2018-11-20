@@ -16,24 +16,30 @@
     {{include "web2py_ajax.html"}}
     {{block head}}{{end}}
   </head>
-  <body class="black">
+  <body class="orange2">
     {{if response.flash:}}
     <div class="w2p_flash">
       {{=response.flash}}
     </div>
     {{pass}}
-    <header class="black padded">
+    <header class="orange padded">
+        <div class = top_bar>
+            <img width="40"height="40" src={{=URL('static', 'images/logo.png')}}>
+            ClassPass
+            <ul class="menu right">
+                  <li>
+                    {{=auth.navbar(mode='dropdown')}}
+                  </li>
+                </ul>
+        </div>
       <div class="container middle max900">
         <div class="fill middle">
+
           <label class="ham padded fa fa-bars" for="menu"></label>
           <div class="burger accordion">
-            <input type="checkbox" id="menu"/>
-            {{=MENU(response.menu,_class='menu')}}
-            <ul class="menu right">
-              <li>
-                {{=auth.navbar(mode='dropdown')}}
-              </li>
-            </ul>
+
+
+
           </div>
         </div>
       </div>
@@ -41,15 +47,10 @@
     <main class="white">
       {{include}}
     </main>
-    <footer class="black">
-      <div class="silver center padded social">
-        <a class="fa fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u={url}"></a>
-        <a class="fa fa-twitter" href="https://twitter.com/home?status={url}"></a>
-        <a class="fa fa-google" href="https://plus.google.com/share?url={url}"></a>
-      </div>
+    <footer class="orange">
       <div class="container padded max900">
         <div class="fill">
-          Copyright @ 2016
+          Copyright @ 2018 by Joseph Darren & Matt
         </div>
       </div>
     </footer>

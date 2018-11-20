@@ -4,11 +4,17 @@ main {
     flex-wrap: wrap;
 }
 
+div.top_bar{
+    font-size: 250%;
+    padding:10px;
+}
+
 div.class_box{
     margin: 15px;
     padding:15px;
     width: 20rem;
-    height:15rem;
+    height:17rem;
+    font-family: "Montserrat-Bold", "Montserrat ExtraBold", "Montserrat", Montserrat, Montserrat, "Montserrat Bold", sans-serif;
     background-color: #F2655A;
     font-size: 300%;
     color: white;
@@ -20,6 +26,7 @@ div.class_info{
     height:70%;
     padding:15px;
     background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
     font-size: 50%;
     color: #636363;
 }
