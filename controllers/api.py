@@ -148,6 +148,7 @@ def get_course_list():
     if auth.user is None:
         for row in rows:
             results.append(dict(
+                id=row.id,
                 course_code=row.course_code,
                 course_title=row.course_title,
             ))
@@ -155,6 +156,7 @@ def get_course_list():
         # Logged in functionality
         for row in rows:
             results.append(dict(
+                id=row.id,
                 course_code=row.course_code,
                 course_title=row.course_title,
             ))

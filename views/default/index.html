@@ -5,29 +5,30 @@
 <script>
     var add_post_url = "{{=URL('api', 'add_post', user_signature=True)}}";
     var add_reply_url = "{{=URL('api', 'add_reply', user_signature=True)}}";
-    var get_post_list_url = "{{=URL('api', 'get_post_list')}}";
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
     var current_user = "{{= 'false' if auth.user is None else auth.user.email}}";
+    var get_course_list_url = "{{=URL('api', 'get_course_list')}}";
 </script>
 {{end}}
 
-<nav>
+<a href="{{=URL('default', 'add_class_redirect')}}">
     <button>Add Class</button>
-</nav>
+</a>
 
 <main id="main-home">
-
-    <div class="class_box">
-        CMPS 101
-        <div class="class_info">
-            <p>Abstract Data Types</p>
-            <p>Contributions: 10000</p>
-            <i class="fas fa-dizzy"></i>
-            <i class="fas fa-pray"></i>
+    <div id="vue-div">
+        <div v-if="course_list.length>0" v-for="course in course_list">
+            <div class="class_box">
+                ${course.course_code}
+                <div class="class_info">
+                    <p>${course.course_title}</p>
+                    <p>Contributions: ${course.post_count}</p>
+                    <i class="fas fa-dizzy"></i>
+                    <i class="fas fa-pray"></i>
+                </div>
+            </div>
         </div>
     </div>
-
-
 </main>
 
 <script src="{{=URL('static', 'js/default_index.js')}}"></script>

@@ -51,3 +51,19 @@ def call():
     """
     return service()
 
+
+@auth.requires_login()
+def add_class_redirect():
+    db.course.post_count.readable = False
+    db.course.post_count.writeable = False
+    form = SQLFORM(db.course)
+    # We can process the form.  This will check that the request is a POST,
+    # and also perform validation, but in this case there is no validation.
+    # THIS process() also inserts.
+    if form.process().accepted:
+        redirect(URL('default', 'index'))
+    # We ask web2py to lay out the form for us.
+    logger.info("My session is: %r" % session)
+    return dict(form=form)
+
+

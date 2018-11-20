@@ -22,13 +22,6 @@ def get_user_email():
 def get_current_time():
     return datetime.datetime.utcnow()
 
-db.define_table('post',
-                Field('post_author', default=get_user_email()),
-                Field('post_title'),
-                Field('post_content', 'text'),
-                Field('post_time', 'datetime', default=get_current_time()),
-                )
-
 
 # Course Table
 db.define_table('course',
