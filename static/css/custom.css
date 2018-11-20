@@ -1,8 +1,8 @@
-a {color:orangered}
-a:not(.btn):not(.noeffect):hover {color:orangered}
-a:not(.btn):not(.noeffect):after {background-color:orangered}
-.btn, button, [type=button], [type=submit] {background-color:orangered; color:white}
-.progress .determinate {background-color:orangered}
-.progress .indeterminate {background-color:orangered}
-.tags > span {background-color: orangered}
-.tags.dismissible > span.off:hover {background-color:orangered}
+a {color:#F2655A;}
+a:not(.btn):not(.noeffect):hover {color:#f25b50}
+a:not(.btn):not(.noeffect):after {background-color:#f25b50}
+.btn, button, [type=button], [type=submit] {background-color:#F2655A; color:white; padding: 10px;margin: 10px; font-weight: bold; font-size: 150%;font-family: "Montserrat-Bold", "Montserrat ExtraBold", "Montserrat", Montserrat, Montserrat, "Montserrat Bold", sans-serif;}
+.progress .determinate {background-color:#F2655A}
+.progress .indeterminate {background-color:#F2655A}
+.tags > span {background-color: #F2655A}
+.tags.dismissible > span.off:hover {background-color:#F2655A}
