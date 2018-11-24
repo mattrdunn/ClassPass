@@ -12,13 +12,17 @@
 {{end}}
 
 <a href="{{=URL('default', 'add_class_redirect')}}">
-    <button>Add Class</button>
+
+    <button>
+        <i class="fas fa-plus"></i>
+        Add Class
+    </button>
 </a>
 
 <main id="main-home">
     <div id="vue-div">
-        <div v-if="course_list.length>0" v-for="course in course_list">
-            <div class="class_box">
+        <div  v-if="course_list.length>0" v-for="course in course_list">
+            <div class="class_box" >
                 ${course.course_code}
                 <div class="class_info">
                     <p>${course.course_title}</p>

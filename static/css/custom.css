@@ -1,7 +1,7 @@
 a {color:#F2655A;}
-a:not(.btn):not(.noeffect):hover {color:#f25b50}
-a:not(.btn):not(.noeffect):after {background-color:#f25b50}
-.btn, button, [type=button], [type=submit] {background-color:#F2655A; color:white; padding: 10px;margin: 10px; font-weight: bold; font-size: 150%;font-family: "Montserrat-Bold", "Montserrat ExtraBold", "Montserrat", Montserrat, Montserrat, "Montserrat Bold", sans-serif;}
+a:not(.btn):not(.noeffect):hover {color:#ffffff}
+a:not(.btn):not(.noeffect):after {background-color:#ffffff00}
+.btn, button, [type=button], [type=submit] {background-color:#F2655A; color:white; padding: 10px;margin: 10px; font-weight: bold; font-size: 150%;font-family: "Montserrat-Bold", "Montserrat ExtraBold", "Montserrat", Montserrat}
 .progress .determinate {background-color:#F2655A}
 .progress .indeterminate {background-color:#F2655A}
 .tags > span {background-color: #F2655A}

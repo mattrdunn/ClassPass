@@ -14,9 +14,9 @@ div.class_box{
     padding:15px;
     width: 20rem;
     height:17rem;
-    font-family: "Montserrat-Bold", "Montserrat ExtraBold", "Montserrat", Montserrat, Montserrat, "Montserrat Bold", sans-serif;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
     background-color: #F2655A;
-    font-size: 300%;
+    font-size: 250%;
     color: white;
 }
 
