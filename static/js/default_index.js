@@ -24,6 +24,10 @@ var app = function() {
         }
     };
 
+    var class_page = function() {
+        $.get(class_page_url);
+    }
+
     /* Course functions */
 
     self.add_course = function ()
@@ -107,7 +111,8 @@ var app = function() {
             show_form: self.show_form,
             add_course: self.add_course,
             process_courses: self.process_courses,
-            get_courses: self.get_courses
+            get_courses: self.get_courses,
+            class_page: self.class_page
         }
 
     });
