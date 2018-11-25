@@ -27,7 +27,7 @@ var app = function() {
     self.class_page = function() {
         $.get(class_page_url);
         console.log("We're calling it")
-    };
+    }
 
     /* Course functions */
 
