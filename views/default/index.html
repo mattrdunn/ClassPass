@@ -12,8 +12,7 @@
 </script>
 {{end}}
 
-<a href="{{=URL('default', 'add_class')}}">
-
+<a href="{{=URL('default', 'add_class_form')}}">
     <button>
         <i class="fas fa-plus"></i>
         Add Class
@@ -23,8 +22,7 @@
 <main>
     <div id="vue-div">
         <div v-if="course_list.length>0" v-for="course in course_list">
-            <a href="{{=URL('default', 'class_page')}}">
-            <div class="class_box">
+            <div class="class_box" v-on:click="class_page">
                 ${course.course_code}
                 <div class="class_info">
                     <p>${course.course_title}</p>
@@ -35,7 +33,6 @@
                     </div>
                 </div>
             </div>
-            </a>
         </div>
     </div>
 </main>

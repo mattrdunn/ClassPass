@@ -1,0 +1,20 @@
+{{extend 'layout.html'}}
+<h1>Add Class</h1>
+<textarea v-model="form_content" placeholder="Course Code (e.g. 'CMPS 183')"></textarea>
+<textarea v-model="form_content" placeholder="Course Title (e.g. 'Web Applications')"></textarea>
+<select v-model="diff-rating">
+    <option>Choose a difficulty rating</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+</select>
+
+<textarea v-model.number="workAvg" type="number"></textarea>
+
+<input type="checkbox" v-model="att-check" id="att-checkbox">
+<label for="att-checkbox">Attendance taken</label>
+<input type="checkbox"> Webcasts Available
+
+<script src="{{=URL('static', 'js/add_class.js')}}"></script>
