@@ -7,7 +7,7 @@
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
     var current_user = "{{= 'false' if auth.user is None else auth.user.email}}";
     var get_course_list_url = "{{=URL('api', 'get_course_list')}}";
-    var class_page_url = "{{=URL('default', 'class_page')}}";
+    // var class_page_url = "{{=URL('default', 'class_page')}}";
 </script>
 {{end}}
 
@@ -21,7 +21,7 @@
 <main>
     <div id="vue-div">
         <div v-if="course_list.length>0" v-for="course in course_list">
-            <div class="class_box" v-on:click="class_page">
+            <div class="class_box" v-on:click="class_page(course.course_code)">
                 ${course.course_code}
                 <div class="class_info">
                     <p>${course.course_title}</p>

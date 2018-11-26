@@ -70,8 +70,10 @@ def add_class_form():
     return dict()
 
 # returns class_page.html
+# set course_code as a global variable here and use it
 def class_page():
-    print "INSIDE CLASS_PAGE PYTHON"
+    # course_code = request.vars.course_code
     return dict()
+
 
 

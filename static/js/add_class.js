@@ -46,6 +46,8 @@ var app = function() {
                     self.vue.workAvg = "";
                     self.vue.attCheck = "";
                     self.vue.webCheck = "";
+                            // Calls default.py/index and loads index.html without an ability to hit "back" and return to add_class_form.html
+                    window.location.replace("index");
                 }
             );
         }

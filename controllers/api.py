@@ -10,7 +10,7 @@ def add_course():
         attendance=request.vars.attendance,
         webcast=request.vars.webcast,
     )
-    redirect(URL('default', 'index'))
+    return
 
 
 def get_course_list():
