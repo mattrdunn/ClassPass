@@ -4,7 +4,6 @@
     flex-wrap: wrap;
 }
 
-
 div.top_bar{
     font-size: 250%;
     padding:10px;
@@ -40,6 +39,7 @@ div.add_class_form_box{
     background-color: #F2655A;
     font-size: 150%;
     color: white;
+    height: auto;
 }
 
 div.add_class_form_outer_box{
@@ -55,7 +55,7 @@ div.add_class_form_outer_box{
 div.add_class_form{
     margin-top: 10px;
     margin-bottom: 10px;
-    height:80%;
+    height: auto;
     padding:15px;
     background-color:white;
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;

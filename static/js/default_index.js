@@ -15,17 +15,9 @@ var app = function() {
     // Enumerates an array.
     var enumerate = function(v) { var k=0; return v.map(function(e) {e._idx = k++;});};
 
-    self.show_form = function() {
-        if(self.vue.showForm) {
-            self.vue.showForm = false;
-        }
-        else {
-            self.vue.showForm = true;
-        }
-    };
-
+    // class was selected, send user to that class's page
     self.class_page = function() {
-        $.get(class_page_url);
+        $.getJSON(class_page_url);
         console.log("We're calling it")
     };
 
@@ -99,9 +91,6 @@ var app = function() {
     }
 
 
-
-
-    // Complete as needed.
     self.vue = new Vue({
         el: "#vue-div",
         delimiters: ['${', '}'],
@@ -126,10 +115,10 @@ var app = function() {
 
     });
 
-    // If we are logged in, shows the form to add posts.
-    if (is_logged_in) {
-        $("#add_post").show();
-    }
+    // If we are logged in, shows the form to add classes.
+    // if (is_logged_in) {
+    //     $("#add_post").show();
+    // }
 
     // Gets the courses.
     self.get_courses();

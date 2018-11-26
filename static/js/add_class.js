@@ -1,4 +1,4 @@
-// This is the js for the default/index.html view.
+// This is the js for the default/add_class_form.html view.
 var app = function() {
     var self = {};
 
@@ -11,117 +11,63 @@ var app = function() {
         }
     };
 
-    // Enumerates an array.
-    var enumerate = function(v) { var k=0; return v.map(function(e) {e._idx = k++;});};
-
-    self.show_form = function() {
-        if(self.vue.showForm) {
-            self.vue.showForm = false;
-        }
-        else {
-            self.vue.showForm = true;
-        }
-    };
-
-    self.class_page = function() {
-        $.get(class_page_url);
-        console.log("We're calling it")
-    }
 
     /* Course functions */
 
-    self.add_course = function ()
+    self.addCourse = function ()
     {
-        // Make a copy of the title & content
-        var sent_title = self.vue.course_title;
-        var sent_code = self.vue.course_code;
-
-        if(sent_title === "" || send_name === "")
+        if(self.vue.courseCode === "" || self.vue.courseTitle === "" ||
+            self.vue.diffRating === "" || self.vue.diffRating == "Choose a difficulty rating" || self.vue.workAvg == "Choose hours of work per week" || self.vue.workAvg === "")
         {
-            alert("Please add a course title or course name to your submission");
+            console.log(self.vue.courseCode);
+            console.log(self.vue.courseTitle);
+            console.log(self.vue.diffRating);
+            console.log(self.vue.workAvg);
+            console.log(self.vue.attCheck);
+            console.log(self.vue.webCheck);
+            alert("Please fill out all of the fields in your submission");
         }
         else
         {
             $.post(add_course_url,
                 // Data we will send
                 {
-                    course_title: self.vue.course_title,
-                    course_code: self.vue.course_code
+                    course_code: self.vue.courseCode,
+                    course_title: self.vue.courseTitle,
+                    difficulty_rating: self.vue.diffRating,
+                    work_avg: self.vue.workAvg,
+                    attendance: self.vue.attCheck,
+                    webcast: self.vue.webCheck,
                 },
-                function(data)
-                {
-                    // After this succeeds, we will clear the fields
-                    self.vue.course_title = "";
-                    self.vue.course_code = "";
-
-                    let new_course = {
-                        course_code: sent_code,
-                        course_title: sent_title,
-                    };
-
-                    self.vue.course_list.unshift(new_course);
-
-                    self.process_courses();
-
+                function() {
+                    self.vue.courseCode = "";
+                    self.vue.courseTitle = "";
+                    self.vue.diffRating = "";
+                    self.vue.workAvg = "";
+                    self.vue.attCheck = "";
+                    self.vue.webCheck = "";
                 }
             );
         }
     };
 
-    self.process_courses = function ()
-    {
-        enumerate(self.vue.course_list);
 
-        // Initialization of course variables
-        self.vue.course_list.map(function (e)
-        {
-
-        });
-    };
-
-    self.get_courses = function ()
-    {
-        $.getJSON(get_course_list_url,
-            function(data)
-            {
-                self.vue.course_list = data.course_list;
-                console.log(data);
-                // Course-processing
-                self.process_courses();
-            }
-        );
-    };
-
-
-
-
-
-
-
-    // Complete as needed.
     self.vue = new Vue({
-        el: "#vue-div",
+        el: "#vue-div2",
         delimiters: ['${', '}'],
         unsafeDelimiters: ['!{', '}'],
         data: {
-            form_title: "",
-            form_content: "",
-            course_title: "",
-            course_code: "",
-            post_count: 0,
-            course_list: [],
-            showForm: false,
+            courseCode: "",
+            courseTitle: "",
+            diffRating: "",
+            workAvg: "",
+            attCheck: false,
+            webCheck: false,
+            courseList: [],
         },
         methods: {
-            show_form: self.show_form,
-            add_course: self.add_course,
-            process_courses: self.process_courses,
-            get_courses: self.get_courses,
-            class_page: self.class_page,
-
-
+            addCourse: self.addCourse,
         }
-
     });
 
     // If we are logged in, shows the form to add posts.
@@ -129,8 +75,6 @@ var app = function() {
         $("#add_post").show();
     }
 
-    // Gets the courses.
-    self.get_courses();
 
     return self;
 };

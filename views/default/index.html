@@ -3,8 +3,7 @@
 {{block head}}
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
 <script>
-    var add_post_url = "{{=URL('api', 'add_post', user_signature=True)}}";
-    var add_reply_url = "{{=URL('api', 'add_reply', user_signature=True)}}";
+    var add_course_url = "{{=URL('api', 'add_post', user_signature=True)}}";
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
     var current_user = "{{= 'false' if auth.user is None else auth.user.email}}";
     var get_course_list_url = "{{=URL('api', 'get_course_list')}}";
