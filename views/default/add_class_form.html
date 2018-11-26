@@ -1,20 +1,72 @@
 {{extend 'layout.html'}}
-<h1>Add Class</h1>
-<textarea v-model="form_content" placeholder="Course Code (e.g. 'CMPS 183')"></textarea>
-<textarea v-model="form_content" placeholder="Course Title (e.g. 'Web Applications')"></textarea>
-<select v-model="diff-rating">
-    <option>Choose a difficulty rating</option>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-</select>
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+    <script>
+        var add_post_url = "{{=URL('api', 'add_post', user_signature=True)}}";
+        var add_reply_url = "{{=URL('api', 'add_reply', user_signature=True)}}";
+        var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
+        var current_user = "{{= 'false' if auth.user is None else auth.user.email}}";
+        var get_course_list_url = "{{=URL('api', 'get_course_list')}}";
+        var class_page_url = "{{=URL('default', 'class_page')}}";
+    </script>
+{{end}}
+<div class="add_class_form_outer_box">
+    <p>Add Class</p>
 
-<textarea v-model.number="workAvg" type="number"></textarea>
+    <div class="add_class_form">
+        <div class="add_class_form_box">
+            <p>Course Code</p>
+            <textarea class= v-model="course_code" placeholder="e.g.'CMPS 183'"></textarea>
+        </div>
+        <div class="add_class_form_box">
+            <p>Course Title</p>
+            <textarea v-model="course_title" placeholder="e.g. 'Web Applications'"></textarea>
+        </div>
 
-<input type="checkbox" v-model="att-check" id="att-checkbox">
-<label for="att-checkbox">Attendance taken</label>
-<input type="checkbox"> Webcasts Available
+        <div class="add_class_form_box">
+            <p>Difficulty Rating</p>
+            <div class="select_box">
+                <select v-model="diff-rating">
+                    <option>Choose a difficulty rating</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
 
+        <div class="add_class_form_box">
+            <p>Hours of Work Per Week</p>
+            <div class="select_box">
+                <select v-model="diff-rating">
+                    <option>Choose Hours of Work</option>
+                    <option>Less than 2 Hours</option>
+                    <option>2-4 Hours</option>
+                    <option>5-7 Hours</option>
+                    <option>8-10 Hours</option>
+                    <option>10-15 Hours</option>
+                    <option>15-20 Hours</option>
+                    <option>20+ Hours</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="add_class_form_box">
+            <p>Other Info</p>
+             <div class="select_box">
+                <input type="checkbox" v-model="att-check" id="att-checkbox">
+                <label for="att-checkbox">Attendance Taken</label>
+                 <input type="checkbox" v-model="web-check" id="web-checkbox">
+                <label for="web-checkbox">Webcasts Available</label>
+             </div>
+        </div>
+
+
+        <button id="add-course" v-on:click="add_course">Submit</button>
+
+</a>
+    </div>
+</div>
 <script src="{{=URL('static', 'js/add_class.js')}}"></script>

@@ -93,6 +93,13 @@ var app = function() {
         );
     };
 
+    self.test = function()
+    {
+        alert("aHHH")
+    }
+
+
+
 
     // Complete as needed.
     self.vue = new Vue({
@@ -113,7 +120,8 @@ var app = function() {
             add_course: self.add_course,
             process_courses: self.process_courses,
             get_courses: self.get_courses,
-            class_page: self.class_page
+            class_page: self.class_page,
+            test: self.test,
         }
 
     });

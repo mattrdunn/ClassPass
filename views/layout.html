@@ -24,8 +24,10 @@
     {{pass}}
     <header class="orange padded">
         <div class = top_bar>
-            <img width="40"height="40" src={{=URL('static', 'images/logo.png')}}>
-            ClassPass
+            <a href="{{=URL('default', 'index')}}">
+                <img width="40"height="40" src={{=URL('static', 'images/logo.png')}}>
+                ClassPass
+            </a>
             <ul class="menu right">
                   <li>
                     {{=auth.navbar(mode='dropdown')}}

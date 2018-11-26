@@ -1,6 +1,5 @@
 // This is the js for the default/index.html view.
 var app = function() {
-
     var self = {};
 
     Vue.config.silent = false; // show all warnings
@@ -94,6 +93,11 @@ var app = function() {
     };
 
 
+
+
+
+
+
     // Complete as needed.
     self.vue = new Vue({
         el: "#vue-div",
@@ -113,7 +117,9 @@ var app = function() {
             add_course: self.add_course,
             process_courses: self.process_courses,
             get_courses: self.get_courses,
-            class_page: self.class_page
+            class_page: self.class_page,
+
+
         }
 
     });

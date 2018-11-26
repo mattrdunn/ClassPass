@@ -182,7 +182,7 @@ input:invalid, input.error, textarea:invalid, textarea.error {background: #ffdfd
 /**** dropdown menu from http://codepen.io/philhoyt/pen/ujHzd ***/
 .menu {list-style:none; position:relative; margin:0; padding:0}
 .menu.right {float:right}
-.menu a {padding:0 20px; text-decoration:none;text-align:left;font-family:"Montserrat-Light", "Montserrat", "Helvetica Neue", Montserrat, Montserrat, "Montserrat;", sans-serif; text-align:left}
+.menu a {padding:0 20px; font-size: 50%; text-decoration:none;text-align:left;font-family:"Montserrat-Light", "Montserrat", "Helvetica Neue", Montserrat, Montserrat, "Montserrat;", sans-serif; text-align:left}
 .menu li {position:relative; float:left; margin:0; padding:0}
 .menu ul {background:#F2655A; visibility:hidden; opacity:0;  position:absolute; top:110%; padding:0; z-index:1000; transition:all 0.2s ease-out; list-style-type:none; box-shadow:5px 5px 10px #666}
 .menu ul a {padding:10px 15px; color:#ffffff; font-weight:700; font-size:12px; line-height:16px; display: block}
