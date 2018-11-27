@@ -7,11 +7,19 @@
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
 </script>
 {{end}}
+
 <div id="vue-div3">
     <div class="add_class_form_outer_box">
         ${courseCode}
         <i class="small_title">${courseTitle}</i>
     </div>
+
+    <a href="{{=URL('default', 'add_tip_form')}}">
+        <button>
+            <i class="fas fa-plus"></i>
+            Add Tip
+        </button>
+    </a>
 
     <div class= "quick_info_box">
         Quick Information

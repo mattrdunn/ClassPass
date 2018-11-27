@@ -29,7 +29,7 @@ db.define_table('course',
                 Field('course_title'),
                 Field('difficulty_rating', 'integer', default=None),
                 Field('work_avg', 'integer', default=None),
-                Field('post_count', "integer", default=0,readable= False,writable=False),
+                Field('post_count', "integer", default=0),
                 Field('attendance', 'boolean', default=None),
                 Field('webcast', 'boolean', default=None)
                 )
@@ -39,7 +39,7 @@ db.define_table('course',
 
 # Tip table
 db.define_table('tip',
-                Field('course_code', 'reference course'),
+                Field('course_code'),
                 Field('tip_author', default=get_user_email()),
                 Field('tip_professor', 'text'),
                 Field('tip_content', 'text'),
@@ -49,6 +49,6 @@ db.define_table('tip',
 
 # current page table
 db.define_table('current_page',
-                Field('curr_page')
+                Field('curr_page', 'text')
                 )
 

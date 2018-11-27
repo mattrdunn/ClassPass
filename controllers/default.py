@@ -7,6 +7,7 @@
 # - user is required for authentication and authorization
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
+selected_code = ""
 
 
 def index():
@@ -69,10 +70,25 @@ def call():
 def add_class_form():
     return dict()
 
+
+def set_code():
+    course_code = request.vars.course_code
+    selected_code = course_code
+    return
+
+
+def get_code():
+    print selected_code
+    return selected_code
+
+
 # returns class_page.html
-# set course_code as a global variable here and use it
 def class_page():
-    # course_code = request.vars.course_code
+    return dict()
+
+
+# returns add_tip_form.html
+def add_tip_form():
     return dict()
 
 

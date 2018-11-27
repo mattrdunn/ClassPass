@@ -61,15 +61,16 @@ def set_page():
 
     return
 
+
+# returns the page to go to
 def get_page():
     rows = db().select(db.current_page.ALL)
     curr_page = rows[0].curr_page
 
     rows = db().select(db.course.ALL)
-    results = []
     # Logged in functionality
     for row in rows:
-        if(row.course_code == curr_page):
+        if row.course_code == curr_page:
             info = dict(
                 course_code=row.course_code,
                 course_title=row.course_title,
@@ -83,5 +84,37 @@ def get_page():
     return response.json(info)
 
 
+# add tip to database
+# increment db.course.post_count by 1
+# take work average here with respect to post_count and update db.course.work_avg
+def add_tip():
+    rows = db().select(db.current_page.ALL)
+    curr_page = rows[0].curr_page
+    print "curr_page = ", curr_page
+    db.tip.insert(
+        course_code=curr_page,
+        tip_professor=request.vars.tip_professor,
+        tip_content=request.vars.tip_content,
+        tip_quarter=request.vars.tip_quarter,
+    )
 
+    tip_course = db(db.course.course_code == curr_page).select(db.course.ALL)
+    pc = tip_course[0].post_count + 1
+    print "PC = ", pc
+    wa = request.vars.work_avg
+    course_wa = tip_course[0].work_avg
+    # plus one for initial creation
+    course_wa = round((int(course_wa) + int(wa)) / (pc + 1))
+    print "Course WA = ", course_wa
+    dr = request.vars.difficulty_rating
+    course_dr = tip_course[0].difficulty_rating
+    # plus one for initial creation
+    course_dr = round((int(course_dr) + int(dr)) / (pc + 1))
+    print "Course DR = ", course_dr
+
+    db.course.update_or_insert((db.course.course_code == curr_page),
+                               post_count=pc,
+                               difficulty_rating=course_dr,
+                               work_avg=course_wa)
+    return
 

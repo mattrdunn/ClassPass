@@ -31,8 +31,6 @@ var app = function() {
         );
     }
 
-
-
     self.vue = new Vue({
         el: "#vue-div3",
         delimiters: ['${', '}'],
