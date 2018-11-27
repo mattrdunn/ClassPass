@@ -19,10 +19,12 @@ var app = function() {
         $.getJSON(get_page_url,
             function(data)
             {
-                console.log("differs" + data.difficulty_rating)
                 self.vue.courseCode = data.course_code;
                 self.vue.courseTitle = data.course_title;
-                self.diffRating = data.difficulty_rating;
+                self.vue.diffRating = data.difficulty_rating;
+                self.vue.workAvg = data.work_avg;
+                self.vue.attCheck = data.attendance;
+                self.vue.webCheck = data.webcast;
 
 
             }

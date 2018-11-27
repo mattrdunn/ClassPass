@@ -75,6 +75,9 @@ def get_page():
                 course_title=row.course_title,
                 post_count=row.post_count,
                 difficulty_rating=row.difficulty_rating,
+                work_avg=row.work_avg,
+                attendance=row.attendance,
+                webcast=row.webcast,
             )
 
     return response.json(info)

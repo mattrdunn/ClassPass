@@ -7,6 +7,16 @@
 div.top_bar{
     font-size: 250%;
     padding:10px;
+
+}
+
+#edit{
+    float: right;
+}
+
+.small_title{
+    font-size:75%;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
 }
 
 div.class_box{
@@ -71,6 +81,27 @@ div.select_box{
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
     font-size: 50%;
     color: #636363;
+}
+
+div.quick_info{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    padding:15px;
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    color: #636363;
+}
+
+div.quick_info_box{
+    margin: 20px;
+    padding:15px;
+    width: 50%;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
+    background-color: #F2655A;
+    font-size: 150%;
+    color: white;
+    height: auto;
 }
 
 textarea {

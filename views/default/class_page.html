@@ -8,8 +8,35 @@
 </script>
 {{end}}
 <div id="vue-div3">
-    ${courseCode}
-    ${courseTitle}
+    <div class="add_class_form_outer_box">
+        ${courseCode}
+        <i class="small_title">${courseTitle}</i>
+    </div>
+
+    <div class= "quick_info_box">
+        Quick Information
+        <i id="edit" class="fas fa-edit"></i>
+        <div class="quick_info">
+            <div style="display:inline">Difficulty:</div>
+            <div style="display:inline" v-for="i in diffRating">
+                <i class="fas fa-pray"></i>
+            </div>
+            <div>Average Work Per Week: ${workAvg} Hours </div>
+            <div v-if="attCheck">
+                Attendence Taken: <i class="fa fa-check-circle-o"></i>
+            </div>
+            <div v-else>
+                Attendence Taken: <i class="fa fa-times-circle-o"></i>
+            </div>
+            <div v-if="webCheck">
+                Webcast Available: <i class="fa fa-check-circle-o"></i>
+            </div>
+            <div v-else>
+                Webcast Available: <i class="fa fa-times-circle-o"></i>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 
