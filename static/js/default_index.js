@@ -17,10 +17,7 @@ var app = function() {
 
     // class was selected, send user to that class's page
     self.class_page = function(course_code) {
-        // $.post(class_page_url, {course_code: course_code},
-        //     function(data) {
-        //         window.location.replace();
-        //     });
+        $.post(class_page_url, {course_code: course_code});
 
         // Calls default.py/class_page and loads class_page.html
         window.location.assign("class_page");
@@ -90,11 +87,6 @@ var app = function() {
         );
     };
 
-    self.test = function()
-    {
-        alert("aHHH")
-    }
-
 
     self.vue = new Vue({
         el: "#vue-div",
@@ -115,7 +107,6 @@ var app = function() {
             process_courses: self.process_courses,
             get_courses: self.get_courses,
             class_page: self.class_page,
-            test: self.test,
         }
 
     });

@@ -47,3 +47,8 @@ db.define_table('tip',
                 Field('tip_quarter', 'text', default=None)
                 )
 
+# current page table
+db.define_table('current_page',
+                Field('curr_page')
+                )
+

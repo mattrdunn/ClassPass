@@ -7,7 +7,7 @@
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
     var current_user = "{{= 'false' if auth.user is None else auth.user.email}}";
     var get_course_list_url = "{{=URL('api', 'get_course_list')}}";
-    // var class_page_url = "{{=URL('default', 'class_page')}}";
+    var class_page_url = "{{=URL('api', 'set_page')}}";
 </script>
 {{end}}
 

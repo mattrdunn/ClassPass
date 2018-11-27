@@ -3,6 +3,7 @@
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
 <script>
     var add_course_url = "{{=URL('api', 'add_course', user_signature=True)}}";
+    var dup_course_url = "{{=URL('api', 'check_dup')}}";
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
 </script>
 {{end}}

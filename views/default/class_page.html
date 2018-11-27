@@ -1,3 +1,17 @@
 {{extend 'layout.html'}}
 
-Gorp!
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+<script>
+    var get_page_url = "{{=URL('api', 'get_page')}}";
+    var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
+</script>
+{{end}}
+<div id="vue-div3">
+    ${courseCode}
+    ${courseTitle}
+
+</div>
+
+
+<script src="{{=URL('static', 'js/class_page.js')}}"></script>
