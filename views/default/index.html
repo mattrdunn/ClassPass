@@ -27,8 +27,14 @@
                     <p>${course.course_title}</p>
                     <p>Contributions: ${course.post_count}</p>
                     <p style="display:inline">Difficulty:</p>
-                    <div style="display:inline" v-for="i in course.difficulty_rating">
-                        <i class="fas fa-pray"></i>
+                    <div style="display:inline" v-for="i in 5">
+                        <div v-if="i <= course.difficulty_rating" style="display: inline">
+                            <i class="fas fa-pray" style="color:coral"></i>
+                        </div>
+                        <div v-else style="display: inline">
+                            <i class="fas fa-pray" style="color:lightgray"></i>
+                        </div>
+
                     </div>
                 </div>
             </div>
