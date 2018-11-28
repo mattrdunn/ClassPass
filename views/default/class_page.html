@@ -27,8 +27,14 @@
         <i id="edit" class="fas fa-edit"></i>
         <div class="quick_info">
             <div style="display:inline">Difficulty:</div>
-            <div style="display:inline" v-for="i in diffRating">
-                <i class="fas fa-pray"></i>
+            <div style="display:inline" v-for="i in 5">
+                <div v-if="i <= " style="display: inline">
+                    <i class="fas fa-pray" style="color:coral"></i>
+                </div>
+                <div v-else style="display: inline">
+                    <i class="fas fa-pray" style="color:lightgray"></i>
+                </div>
+
             </div>
             <div>Average Work Per Week: ${workAvg} Hours </div>
             <div v-if="attCheck">
