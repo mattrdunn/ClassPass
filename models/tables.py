@@ -39,7 +39,7 @@ db.define_table('course',
 
 # Tip table
 db.define_table('tip',
-                Field('course_code'),
+                Field('course_code', 'text'),
                 Field('tip_author', default=get_user_email()),
                 Field('tip_professor', 'text'),
                 Field('tip_content', 'text'),
