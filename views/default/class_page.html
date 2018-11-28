@@ -29,6 +29,7 @@
             <div style="display:inline">Difficulty:</div>
             <div style="display:inline" v-for="i in diffRating">
                     <i class="fas fa-pray"></i>
+            </div>
             <div>Average Work Per Week: ${workAvg} Hours </div>
             <div v-if="attCheck">
                 Attendence Taken: <i class="fa fa-check-circle-o"></i>
@@ -45,17 +46,16 @@
         </div>
     </div>
 
-    <div id="quick_info_box">
+    <div class="quick_info_box">
         Tips
         <div v-if="tip_list.length>0" v-for="tip in tip_list">
             <div class="quick_info">
                 ${tip.tip_author}
-                    <p>${tip.tip_time} ${tip.tip_quarter} ${tip.tip_professor}</p>
-                    <p>${tip.tip_content}</p>
+                <p>${tip.tip_time} ${tip.tip_quarter} ${tip.tip_professor}</p>
+                <p>${tip.tip_content}</p>
             </div>
         </div>
     </div>
 </div>
-
 
 <script src="{{=URL('static', 'js/class_page.js')}}"></script>
