@@ -87,11 +87,12 @@ def get_page():
 # add tip to database
 # increment db.course.post_count by 1
 # take work average here with respect to post_count and update db.course.work_avg
+@auth.requires_signature()
 def add_tip():
     rows = db().select(db.current_page.ALL)
     curr_page = rows[0].curr_page
     print "curr_page = ", curr_page
-    db.tip.insert(
+    db.tips.insert(
         course_code=curr_page,
         tip_professor=request.vars.tip_professor,
         tip_content=request.vars.tip_content,
@@ -118,3 +119,20 @@ def add_tip():
                                work_avg=course_wa)
     return
 
+
+# used to display the list of tips
+def get_tip():
+    results = []
+
+    rows = db().select(db.tips.ALL)
+
+    for row in rows:
+        results.append(dict(
+            tip_author=row.tip_author,
+            tip_professor=row.tip_professor,
+            tip_content=row.tip_content,
+            tip_time=row.tip_time,
+            tip_quarter=row.tip_quarter,
+        ))
+
+    return response.json(dict(tip_list=results))

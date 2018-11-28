@@ -4,6 +4,7 @@
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
 <script>
     var get_page_url = "{{=URL('api', 'get_page')}}";
+    var get_tips_url = "{{=URL('api', 'get_tip')}}";
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
 </script>
 {{end}}
@@ -45,6 +46,15 @@
         </div>
     </div>
 
+<main>
+    <div id="vue-div">
+        <div v-if="tip_list.length>0" v-for="tip in tip_list">
+                ${tip.tip_author}
+                    <p>${tip.tip_time} ${tip.tip_quarter} ${tip.tip_professor}</p>
+                    <p>${tip.tip_content}</p>
+        </div>
+    </div>
+</main>
 
 </div>
 

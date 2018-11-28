@@ -11,6 +11,9 @@ var app = function() {
         }
     };
 
+    // Enumerates an array.
+    var enumerate = function(v) { var k=0; return v.map(function(e) {e._idx = k++;});};
+
 
     /* Course functions */
 
@@ -29,7 +32,33 @@ var app = function() {
 
             }
         );
-    }
+    };
+
+    self.processTips = function ()
+    {
+        enumerate(self.vue.tip_list);
+
+        self.vue.tip_list.map(function (e)
+        {
+
+        });
+    };
+
+    self.getTips = function()
+    {
+        console.log("we here");
+        $.getJSON(get_tips_url,
+            function (data)
+            {
+                self.vue.tip_list = data.tip_list;
+                console.log(data);
+
+                //self.processTips();
+            }
+
+        );
+    };
+
 
     self.vue = new Vue({
         el: "#vue-div3",
@@ -44,9 +73,12 @@ var app = function() {
             webCheck: false,
             courseList: [],
             currPage: null,
+            tip_list: [],
         },
         methods: {
             getCourse: self.getCourse,
+            getTips: self.getTips,
+            processTips: self.processTips,
         }
     });
 
@@ -56,6 +88,7 @@ var app = function() {
     }
 
     self.getCourse();
+    self.getTips();
 
     return self;
 };
