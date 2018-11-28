@@ -35,18 +35,6 @@ db.define_table('course',
                 )
 
 
-
-
-# Tip table
-db.define_table('tip',
-                Field('course_code', 'text'),
-                Field('tip_author', default=get_user_email()),
-                Field('tip_professor', 'text'),
-                Field('tip_content', 'text'),
-                Field('tip_time', default=get_current_time()),
-                Field('tip_quarter', 'text', default=None)
-                )
-
 db.define_table('tips',
                 Field('course_code', 'text'),
                 Field('tip_author', default=get_user_email()),

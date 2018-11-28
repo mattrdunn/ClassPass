@@ -71,7 +71,6 @@ var app = function() {
             workAvg: "",
             attCheck: false,
             webCheck: false,
-            courseList: [],
             currPage: null,
             tip_list: [],
         },
