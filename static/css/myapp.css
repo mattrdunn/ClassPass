@@ -120,11 +120,16 @@ textarea {
 }
 
 div.tips{
-    margin-top: 10px;
-    margin-bottom: 10px;
+  
+    margin-bottom: 5px;
     height: auto;
     padding:15px;
     background-color:white;
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
     color: #636363;
+}
+
+#tip-title{
+    margin-bottom: 10px;
+    display: inline-block;
 }
