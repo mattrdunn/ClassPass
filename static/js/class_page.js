@@ -36,9 +36,9 @@ var app = function() {
 
     self.processTips = function ()
     {
-        enumerate(self.vue.tip_list);
+        enumerate(self.vue.tipList);
 
-        self.vue.tip_list.map(function (e)
+        self.vue.tipList.map(function (e)
         {
 
         });
@@ -50,7 +50,7 @@ var app = function() {
         $.getJSON(get_tips_url,
             function (data)
             {
-                self.vue.tip_list = data.tip_list;
+                self.vue.tipList = data.tip_list;
                 console.log(data);
 
                 //self.processTips();
@@ -72,7 +72,7 @@ var app = function() {
             attCheck: false,
             webCheck: false,
             currPage: null,
-            tip_list: [],
+            tipList: [],
         },
         methods: {
             getCourse: self.getCourse,

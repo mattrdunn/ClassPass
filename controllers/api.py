@@ -123,8 +123,10 @@ def add_tip():
 # used to display the list of tips
 def get_tip():
     results = []
+    cp_row = db().select(db.current_page.ALL)
+    curr_page = cp_row[0].curr_page
 
-    rows = db().select(db.tips.ALL)
+    rows = db(db.tips.course_code == curr_page).select(db.tips.ALL)
 
     for row in rows:
         results.append(dict(
