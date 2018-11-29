@@ -138,3 +138,14 @@ def get_tip():
         ))
 
     return response.json(dict(tip_list=results))
+
+
+# Edit a tip in the database
+@auth.requires_signature()
+def edit_tip():
+    content_change = request.vars.tip_content
+
+    db.tips.update_or_insert(
+        (db.tips.tip_author == auth.user.email),
+        tip_content=content_change
+    )

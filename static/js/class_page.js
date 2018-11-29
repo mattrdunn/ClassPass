@@ -40,23 +40,63 @@ var app = function() {
 
         self.vue.tipList.map(function (e)
         {
+            Vue.set(e, 'editStatus', false);
 
         });
     };
 
     self.getTips = function()
     {
-        console.log("we here");
         $.getJSON(get_tips_url,
             function (data)
             {
                 self.vue.tipList = data.tip_list;
                 console.log(data);
 
-                //self.processTips();
+                self.processTips();
             }
 
         );
+    };
+
+    // Enables specified edit button for certain tip
+    self.enableEdit = function(author, time)
+    {
+        let tipList = self.vue.tipList;
+
+        for(let i = 0; i < tipList.length; i++)
+        {
+            if(author === tipList[i].tip_author && time === tipList[i].tip_time)
+            {
+                if(tipList[i].editStatus === true)
+                {
+                    tipList[i].editStatus = false;
+                }
+                else
+                {
+                    tipList[i].editStatus = true;
+                }
+            }
+        }
+    }
+
+    self.editTip = function(author, time)
+    {
+        let tipList = self.vue.tipList;
+
+        for(let i = 0; i < tipList.length; i++)
+        {
+            if(author === tipList[i].tip_author && time === tipList[i].tip_time)
+            {
+                $.post(edit_tip_url,{
+                    tip_content: tipList[i].tip_content
+                }, function(data){
+                    self.enableEdit(author,time);
+                }
+                );
+                
+            }
+        }
     };
 
 
@@ -78,6 +118,8 @@ var app = function() {
             getCourse: self.getCourse,
             getTips: self.getTips,
             processTips: self.processTips,
+            enableEdit: self.enableEdit,
+            editTip: self.editTip,
         }
     });
 
