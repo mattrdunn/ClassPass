@@ -15,19 +15,18 @@
         <i class="small_title">${courseTitle}</i>
     </div>
 
-    <a href="{{=URL('default', 'add_tip_form')}}">
-        <button>
-            <i class="fas fa-plus"></i>
-            Add Tip
-        </button>
-    </a>
-
     <div class= "quick_info_box">
         Quick Information
         <div class="quick_info">
             <div style="display:inline">Difficulty:</div>
-            <div style="display:inline" v-for="i in diffRating">
-                    <i class="fas fa-pray"></i>
+            <div style="display:inline" v-for="i in 5">
+                <div v-if="i <= diffRating" style="display:inline">
+                    <i style="color: #F2655A" class="fas fa-pray"></i>
+                </div>
+                <div v-else style="display:inline">
+                    <i style="color: lightgray" class="fas fa-pray"></i>
+                </div>
+                
             </div>
             <div>Average Work Per Week: ${workAvg} Hours </div>
             <div v-if="attCheck">
@@ -51,11 +50,10 @@
 			Add Tip
 			<i class="fas fa-plus"></i>
 		</a>
-        <div v-if="tip_list.length>0" v-for="tip in tip_list">
-            <div class="quick_info">
-				<div class="quarter_prof">
-					<p> ${tip.tip_professor} ${tip.tip_quarter} </p>
-				</div>
+        <div v-if="tipList.length>0" v-for="tip in tipList">
+            <div class="tips">
+                <b class="quarter_prof"> ${tip.tip_professor} ${tip.tip_quarter} </b>
+                <i id="edit-butt" style="color:#F2655A" class="fas fa-edit"></i>
                 <p>${tip.tip_content}</p>
             </div>
         </div>

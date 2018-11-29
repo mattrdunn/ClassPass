@@ -111,6 +111,20 @@ textarea {
 }
 
 .quarter_prof{
-    float:right;
+    display: inline-block;
     font-size: 65%;
+}
+
+#edit-butt{
+    float:right;
+}
+
+div.tips{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    padding:15px;
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    color: #636363;
 }
