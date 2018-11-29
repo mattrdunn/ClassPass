@@ -91,6 +91,10 @@ def class_page():
 def add_tip_form():
     return dict()
 
+# returns add_tip_form.html
+def add_log_form():
+    return dict()
+
 
 
 

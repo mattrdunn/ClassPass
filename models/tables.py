@@ -44,6 +44,15 @@ db.define_table('tips',
                 Field('tip_quarter', 'text', default=None)
                 )
 
+db.define_table('logs',
+                Field('course_code', 'text'),
+                Field('log_author', default=get_user_email()),
+                Field('log_professor', 'text'),
+                Field('log_content', 'text'),
+                Field('log_time', default=get_current_time()),
+                Field('log_quarter', 'text', default=None)
+                )
+
 # current page table
 db.define_table('current_page',
                 Field('curr_page', 'text')

@@ -6,6 +6,8 @@
     var get_page_url = "{{=URL('api', 'get_page')}}";
     var get_tips_url = "{{=URL('api', 'get_tip')}}";
     var edit_tip_url = "{{=URL('api', 'edit_tip', user_signature=True)}}";
+    var get_logs_url = "{{=URL('api', 'get_logs')}}";
+    var edit_log_url = "{{=URL('api', 'edit_log', user_signature=True)}}";
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
     var curr_user = "{{='false' if auth.user is None else auth.user.email}}";
 </script>
@@ -17,6 +19,7 @@
         <i class="small_title">${courseTitle}</i>
     </div>
 
+    <!--=====================QUICK INFO SECTION==========================-->
     <div class= "quick_info_box">
         Quick Information
         <div class="quick_info">
@@ -27,8 +30,7 @@
                 </div>
                 <div v-else style="display:inline">
                     <i style="color: lightgray" class="fas fa-pray"></i>
-                </div>
-                
+                </div>   
             </div>
             <div>Average Work Per Week: ${workAvg} Hours </div>
             <div v-if="attCheck">
@@ -46,6 +48,7 @@
         </div>
     </div>
 
+    <!--=====================TIP SECTION==========================-->
     <div class="quick_info_box">
 		Tips
 		<a id="add" href="{{=URL('default', 'add_tip_form')}}">
@@ -57,7 +60,7 @@
                 <b class="quarter_prof"> ${tip.tip_professor} ${tip.tip_quarter} </b>
                 <div id= "edit-butt"v-if="curr_user == tip.tip_author">
                     <i style="color:#F2655A" class="fas fa-edit" 
-                v-on:click="enableEdit(tip.tip_author,tip.tip_time)"></i>
+                v-on:click="enableEdit(tip.tip_author,tip.tip_time,'tipList')"></i>
                 </div>
                 <p id="tip-content" v-if="!tip.editStatus">${tip.tip_content}</p>
                 <p v-if="tip.editStatus">
@@ -66,7 +69,44 @@
                 </p>
             </div>
         </div>
+        <div v-if="tipList.length == 0">
+            <div class="tips">
+                This course has no tips yet, press <b style="color:#F2655A; display: inline;">Add Tip+</b> to add one
+            </div>
+        </div>
     </div>
+
+    <!--=====================LOGISTICS SECTION==========================-->
+    <div class="quick_info_box">
+		Course Logistics
+		<a id="add" href="{{=URL('default', 'add_log_form')}}">
+			Add Logistics
+			<i class="fas fa-plus"></i>
+		</a>
+        <div v-if="logList.length>0" v-for="log in logList">
+            <div class="tips">
+                <b class="quarter_prof"> ${log.log_professor} ${log.log_quarter} </b>
+                <div id= "edit-butt"v-if="curr_user == log.log_author">
+                    <i style="color:#F2655A" class="fas fa-edit" 
+                v-on:click="enableEdit(log.log_author,log.log_time,'logList')"></i>
+                </div>
+                <p id="tip-content" v-if="!log.editStatus">${log.log_content}</p>
+                <p v-if="log.editStatus">
+                    <textarea v-model="log.log_content"></textarea>
+                    <button id="save-butt" v-on:click="editLog(log.log_author,log.log_time)">Save</button>
+                </p>
+            </div>
+        </div>
+        <div v-if="logList.length == 0">
+            <div class="tips">
+                This course has no logistics yet, press <b style="color:#F2655A; display: inline;">Add Logistics+</b> to add one
+            </div>
+        </div>
+    </div>
+
+    <div id="white-space"></div>
+    
+
 </div>
 
 <script src="{{=URL('static', 'js/class_page.js')}}"></script>

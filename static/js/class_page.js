@@ -28,8 +28,6 @@ var app = function() {
                 self.vue.workAvg = data.work_avg;
                 self.vue.attCheck = data.attendance;
                 self.vue.webCheck = data.webcast;
-
-
             }
         );
     };
@@ -51,33 +49,77 @@ var app = function() {
             function (data)
             {
                 self.vue.tipList = data.tip_list;
-                console.log(data);
-
                 self.processTips();
             }
 
         );
     };
 
-    // Enables specified edit button for certain tip
-    self.enableEdit = function(author, time)
+    self.processLogs = function ()
     {
-        let tipList = self.vue.tipList;
+        enumerate(self.vue.logList);
+        console.log(self.vue.logList);
 
-        for(let i = 0; i < tipList.length; i++)
+        self.vue.logList.map(function (e)
         {
-            if(author === tipList[i].tip_author && time === tipList[i].tip_time)
+            Vue.set(e, 'editStatus', false);
+        });
+    };
+
+    self.getLogs = function()
+    {
+        $.getJSON(get_logs_url,
+            function (data)
             {
-                if(tipList[i].editStatus === true)
+                self.vue.logList = data.log_list;
+                console.log(data);
+
+                self.processLogs();
+            }
+
+        );
+    };
+
+    // Enables specified edit button for certain tip
+    self.enableEdit = function(author, time,list)
+    {
+        if(list === 'tipList')
+        {
+            let list = self.vue.tipList;
+            for(let i = 0; i < list.length; i++)
+            {
+                if(author === list[i].tip_author && time === list[i].tip_time)
                 {
-                    tipList[i].editStatus = false;
-                }
-                else
-                {
-                    tipList[i].editStatus = true;
+                    if(list[i].editStatus === true)
+                    {
+                        list[i].editStatus = false;
+                    }
+                    else
+                    {
+                        list[i].editStatus = true;
+                    }
                 }
             }
         }
+        else if(list === 'logList')
+        {
+            let list = self.vue.logList;
+            for(let i = 0; i < list.length; i++)
+            {
+                if(author === list[i].log_author && time === list[i].log_time)
+                {
+                    if(list[i].editStatus === true)
+                    {
+                        list[i].editStatus = false;
+                    }
+                    else
+                    {
+                        list[i].editStatus = true;
+                    }
+                }
+            }
+        }
+ 
     }
 
     self.editTip = function(author, time)
@@ -91,7 +133,26 @@ var app = function() {
                 $.post(edit_tip_url,{
                     tip_content: tipList[i].tip_content
                 }, function(data){
-                    self.enableEdit(author,time);
+                    self.enableEdit(author,time,'tipList');
+                }
+                );
+                
+            }
+        }
+    };
+
+    self.editLog = function(author, time)
+    {
+        let logList = self.vue.logList;
+
+        for(let i = 0; i < logList.length; i++)
+        {
+            if(author === logList[i].log_author && time === logList[i].log_time)
+            {
+                $.post(edit_log_url,{
+                    log_content: logList[i].log_content
+                }, function(data){
+                    self.enableEdit(author,time,'logList');
                 }
                 );
                 
@@ -113,6 +174,7 @@ var app = function() {
             webCheck: false,
             currPage: null,
             tipList: [],
+            logList:[],
         },
         methods: {
             getCourse: self.getCourse,
@@ -120,6 +182,9 @@ var app = function() {
             processTips: self.processTips,
             enableEdit: self.enableEdit,
             editTip: self.editTip,
+            getLogs: self.getLogs,
+            processLogs: self.processLogs,
+            editLog: self.editLog,
         }
     });
 
@@ -130,6 +195,7 @@ var app = function() {
 
     self.getCourse();
     self.getTips();
+    self.getLogs();
 
     return self;
 };

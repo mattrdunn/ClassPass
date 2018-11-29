@@ -11,52 +11,56 @@
     <p>Add Class</p>
 
     <div class="add_class_form" id="vue-div2">
-        <div class="add_class_form_box">
+        <div class="add_class_form_box"style="display:inline-block">
             <p>Course Code</p>
             <textarea v-model="courseCode" placeholder="e.g.'CMPS 183'"></textarea>
         </div>
-        <div class="add_class_form_box">
+        <div class="add_class_form_box"style="display:inline-block">
             <p>Course Title</p>
             <textarea v-model="courseTitle" placeholder="e.g. 'Web Applications'"></textarea>
         </div>
 
-        <div class="add_class_form_box">
+        <div class="add_class_form_box"style="display:inline-block">
             <p>Difficulty Rating</p>
             <div class="select_box">
-                <select v-model="diffRating">
-                    <option>Choose a difficulty rating</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
+                <div class="styled-select"> 
+                    <select v-model="diffRating">
+                        <option disabled value="">Choose a difficulty rating</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
             </div>
         </div>
 
-        <div class="add_class_form_box">
+        <div class="add_class_form_box"style="display:inline-block">
             <p>Hours of Work Per Week</p>
             <div class="select_box">
-                <select v-model="workAvg">
-                    <option>Choose hours of work per week</option>
-                    <option>2</option>
-                    <option>4</option>
-                    <option>6</option>
-                    <option>8</option>
-                    <option>10</option>
-                    <option>12</option>
-                    <option>15</option>
-                    <option>18</option>
-                    <option>21</option>
-                    <option>25</option>
-                    <option>30</option>
-                    <option>35</option>
-                    <option>40</option>
-                </select>
+                <div class="styled-select"> 
+                    <select v-model="workAvg">
+                        <option disabled value="">Choose hours of work per week</option>
+                        <option>2</option>
+                        <option>4</option>
+                        <option>6</option>
+                        <option>8</option>
+                        <option>10</option>
+                        <option>12</option>
+                        <option>15</option>
+                        <option>18</option>
+                        <option>21</option>
+                        <option>25</option>
+                        <option>30</option>
+                        <option>35</option>
+                        <option>40</option>
+                    </select>
+                </div>
             </div>
         </div>
 
-        <div class="add_class_form_box">
+        <div class="add_class_form_box"style="display:inline-block">
             <p>Other Info</p>
              <div class="select_box">
                 <input type="checkbox" v-model="attCheck" id="att-checkbox">

@@ -44,9 +44,9 @@ div.class_info{
 }
 
 div.add_class_form_box{
-    margin-top: 20px;
+    margin: 10px;
     padding:15px;
-    width: 50%;
+    width:48%;
     font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
     background-color: #F2655A;
     font-size: 150%;
@@ -98,7 +98,7 @@ div.quick_info{
 div.quick_info_box{
     margin: 20px;
     padding:15px;
-    width: 50%;
+    width: 48%;
     font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
     background-color: #F2655A;
     font-size: 150%;
@@ -107,8 +107,13 @@ div.quick_info_box{
 }
 
 textarea {
-   resize: none;
+   resize:none;
 }
+
+.large-text textarea {
+    resize:none;
+    height: 10em;
+ }
 
 .quarter_prof{
     display: inline-block;
@@ -130,6 +135,18 @@ div.tips{
     color: #636363;
 }
 
+.styled-select select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    padding:15px;
+    font-size:120%;
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    color: #636363;
+}
+
+
 #tip-title{
     margin-bottom: 10px;
     display: inline-block;
@@ -141,4 +158,8 @@ div.tips{
 
 #tip-content{
     margin-top: 10px;
+}
+
+#white-space{
+    height: 30px;
 }

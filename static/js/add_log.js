@@ -14,17 +14,17 @@ var app = function() {
 
     /* Course functions */
 
-    self.addTip = function ()
+    self.addLog = function ()
     {
-        if(self.vue.tipContent === "" || self.vue.tipProf === "" ||
-            self.vue.tipQuarter === "" || self.vue.tipYear === "" ||
+        if(self.vue.logContent === "" || self.vue.logProf === "" ||
+            self.vue.logQuarter === "" || self.vue.logYear === "" ||
             self.vue.diffRating === "Choose the quarter when you took this class" ||
             self.vue.diffRating == "Choose a difficulty rating" ||
             self.vue.workAvg =="Choose hours of work per week" || self.vue.workAvg === "")
         {
-            console.log(self.vue.tipContent);
-            console.log(self.vue.tipProf);
-            console.log(self.vue.tipQuarter);
+            console.log(self.vue.logContent);
+            console.log(self.vue.logProf);
+            console.log(self.vue.logQuarter);
             console.log(self.vue.diffRating);
             console.log(self.vue.workAvg);
             console.log(self.vue.attCheck);
@@ -33,23 +33,22 @@ var app = function() {
         }
         else
         {
-            self.vue.tipQuarter = self.vue.tipQuarter + " " + self.vue.tipYear;
-            $.post(add_tip_url,
+			self.vue.logQuarter = self.vue.logQuarter + " " + self.vue.logYear;
+            $.post(add_log_url,
                 // Data we will send
                 {
-                    tip_content: self.vue.tipContent,
-                    tip_professor: self.vue.tipProf,
-                    tip_quarter: self.vue.tipQuarter,
+                    log_content: self.vue.logContent,
+                    log_professor: self.vue.logProf,
+                    log_quarter: self.vue.logQuarter,
                     difficulty_rating: self.vue.diffRating,
                     work_avg: self.vue.workAvg,
                     attendance: self.vue.attCheck,
                     webcast: self.vue.webCheck,
                 },
                 function() {
-                    self.vue.tipContent = "";
-                    self.vue.tipProf = "";
-                    self.vue.tipQuarter = "";
-                    self.vue.tipYear = "";
+                    self.vue.logContent = "";
+                    self.vue.logProf = "";
+                    self.vue.logQuarter = "";
                     self.vue.diffRating = "";
                     self.vue.workAvg = "";
                     self.vue.attCheck = "";
@@ -67,17 +66,17 @@ var app = function() {
         delimiters: ['${', '}'],
         unsafeDelimiters: ['!{', '}'],
         data: {
-            tipContent: "",
-            tipProf: "",
-            tipQuarter: "",
-            tipYear: "",
+            logContent: "",
+            logProf: "",
+			logQuarter: "",
+			logYear: "",
             diffRating: "",
             workAvg: "",
             attCheck: false,
             webCheck: false,
         },
         methods: {
-            addTip: self.addTip,
+            addLog: self.addLog,
         }
     });
 
