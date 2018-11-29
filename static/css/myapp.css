@@ -117,10 +117,11 @@ textarea {
 
 #edit-butt{
     float:right;
+    display: inline-block;
 }
 
 div.tips{
-  
+    margin-top: 10px;
     margin-bottom: 5px;
     height: auto;
     padding:15px;
@@ -132,4 +133,12 @@ div.tips{
 #tip-title{
     margin-bottom: 10px;
     display: inline-block;
+}
+#save-butt{
+    font-size: 65%;
+    color: white;    
+}
+
+#tip-content{
+    margin-top: 10px;
 }

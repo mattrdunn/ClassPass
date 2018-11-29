@@ -7,6 +7,7 @@
     var get_tips_url = "{{=URL('api', 'get_tip')}}";
     var edit_tip_url = "{{=URL('api', 'edit_tip', user_signature=True)}}";
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
+    var curr_user = "{{='false' if auth.user is None else auth.user.email}}";
 </script>
 {{end}}
 
@@ -54,8 +55,11 @@
         <div v-if="tipList.length>0" v-for="tip in tipList">
             <div class="tips">
                 <b class="quarter_prof"> ${tip.tip_professor} ${tip.tip_quarter} </b>
-                <i id="edit-butt" style="color:#F2655A" class="fas fa-edit" v-on:click="enableEdit(tip.tip_author,tip.tip_time)"></i>
-                <p v-if="!tip.editStatus">${tip.tip_content}</p>
+                <div id= "edit-butt"v-if="curr_user == tip.tip_author">
+                    <i style="color:#F2655A" class="fas fa-edit" 
+                v-on:click="enableEdit(tip.tip_author,tip.tip_time)"></i>
+                </div>
+                <p id="tip-content" v-if="!tip.editStatus">${tip.tip_content}</p>
                 <p v-if="tip.editStatus">
                     <textarea v-model="tip.tip_content"></textarea>
                     <button id="save-butt" v-on:click="editTip(tip.tip_author,tip.tip_time)">Save</button>
