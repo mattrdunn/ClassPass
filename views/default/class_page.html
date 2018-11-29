@@ -24,7 +24,6 @@
 
     <div class= "quick_info_box">
         Quick Information
-        <i id="edit" class="fas fa-edit"></i>
         <div class="quick_info">
             <div style="display:inline">Difficulty:</div>
             <div style="display:inline" v-for="i in diffRating">
@@ -47,11 +46,16 @@
     </div>
 
     <div class="quick_info_box">
-        Tips
+		Tips
+		<a id="add" href="{{=URL('default', 'add_tip_form')}}">
+			Add Tip
+			<i class="fas fa-plus"></i>
+		</a>
         <div v-if="tip_list.length>0" v-for="tip in tip_list">
             <div class="quick_info">
-                ${tip.tip_author}
-                <p>${tip.tip_time} ${tip.tip_quarter} ${tip.tip_professor}</p>
+				<div class="quarter_prof">
+					<p> ${tip.tip_professor} ${tip.tip_quarter} </p>
+				</div>
                 <p>${tip.tip_content}</p>
             </div>
         </div>

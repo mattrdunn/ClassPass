@@ -10,7 +10,9 @@ div.top_bar{
 
 }
 
-#edit{
+#add{
+    font-size: 65%;
+    color: white;
     float: right;
 }
 
@@ -106,4 +108,9 @@ div.quick_info_box{
 
 textarea {
    resize: none;
+}
+
+.quarter_prof{
+    float:right;
+    font-size: 65%;
 }
