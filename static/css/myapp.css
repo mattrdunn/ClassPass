@@ -14,7 +14,7 @@ div.top_bar{
     font-size: 65%;
     color: white;
     float: right;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 
@@ -31,7 +31,7 @@ div.top_bar{
 }
 
 .new-butt button{
-    transition: all 0.5s ease-in-out;
+    transition: all 0.25s ease-in-out;
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
 }
 
@@ -50,7 +50,7 @@ div.class_box{
     background-color: #F2655A;
     font-size: 250%;
     color: white;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 
@@ -87,7 +87,7 @@ div.add_class_form_box{
     font-size: 150%;
     color: white;
     height: auto;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 div.add_class_form_box:hover{
@@ -184,14 +184,14 @@ textarea {
 #edit-butt{
     float:right;
     display: inline-block;
-    color:#F2655A;
-    transition: all 0.5s ease-in-out;
+    color:#f2918a;
+    transition: all 0.25s ease-in-out;
 }
 
 #edit-butt:hover{
     float:right;
     display: inline-block;
-    color: rgb(209, 82, 73);
+    color: #d8827c;
     transform: scale(1.2,1.2);
 }
 
