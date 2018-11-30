@@ -7,18 +7,12 @@
 # - user is required for authentication and authorization
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
+selected_code = ""
 
 
 def index():
-    """
-    example action using the internationalization operator T and flash
-    rendered by views/default/index.html or views/generic.html
-
-    if you need a simple wiki simply replace the two lines below with:
-    return auth.wiki()
-    """
-    response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
+    # We just want to expand the template.
+    return dict()
 
 
 def user():
@@ -57,5 +51,50 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
+
+
+# @auth.requires_login()
+# def add_class():
+#     form = SQLFORM(db.course)
+#     # We can process the form.  This will check that the request is a POST,
+#     # and also perform validation, but in this case there is no validation.
+#     # THIS process() also inserts.
+#     if form.process().accepted:
+#         redirect(URL('default', 'index'))
+#     # We ask web2py to lay out the form for us.
+#     logger.info("My session is: %r" % session)
+#     return dict(form=form)
+
+
+@auth.requires_login()
+def add_class_form():
+    return dict()
+
+
+def set_code():
+    course_code = request.vars.course_code
+    selected_code = course_code
+    return
+
+
+def get_code():
+    print selected_code
+    return selected_code
+
+
+# returns class_page.html
+def class_page():
+    return dict()
+
+
+# returns add_tip_form.html
+def add_tip_form():
+    return dict()
+
+# returns add_tip_form.html
+def add_log_form():
+    return dict()
+
+
 
 

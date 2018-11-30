@@ -1,4 +1,234 @@
-/* line 1, ../sass/_main.scss */
-.colorful {
-  color: #bb8833;
+#vue-div {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+div.top_bar{
+    font-size: 250%;
+    padding:10px;
+
+}
+
+#add{
+    font-size: 65%;
+    color: white;
+    float: right;
+    transition: all 0.5s ease-in-out;
+}
+
+
+#add:hover{
+    font-size: 65%;
+    color: white;
+    float: right;
+    transform: scale(1.1,1.1);
+}
+
+.small_title{
+    font-size:75%;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+}
+
+.new-butt button{
+    transition: all 0.5s ease-in-out;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+}
+
+.new-butt button:hover{
+    transform: scale(1.05,1.05);
+    background-color: rgb(209, 82, 73);
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+}
+
+div.class_box{
+    margin: 15px;
+    padding:15px;
+    width: 20rem;
+    height:17rem;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
+    background-color: #F2655A;
+    font-size: 250%;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+
+div.class_box:hover{
+    margin: 15px;
+    padding:15px;
+    width: 20rem;
+    height:17rem;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
+    background-color: rgb(209, 82, 73);
+    font-size: 250%;
+    color: white;
+    transform: scale(1.05,1.05);
+
+}
+
+div.class_info{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height:70%;
+    padding:15px;
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    font-size: 50%;
+    color: #636363;
+}
+
+div.add_class_form_box{
+    margin: 10px;
+    padding:15px;
+    width:48%;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
+    background-color: #F2655A;
+    font-size: 150%;
+    color: white;
+    height: auto;
+    transition: all 0.5s ease-in-out;
+}
+
+div.add_class_form_box:hover{
+    margin: 10px;
+    padding:15px;
+    width:48%;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
+    background-color: rgb(209, 82, 73);
+    font-size: 150%;
+    color: white;
+    height: auto;
+    transform: scale(1.01,1.01);
+}
+
+div.add_class_form_outer_box{
+    margin-top: 20px;
+    padding:15px;
+    width: 100%;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
+    background-color: #f2918a;
+    font-size: 250%;
+    color: white;
+}
+
+
+div.add_class_form{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    padding:15px;
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    font-size: 50%;
+    color: #636363;
+}
+
+div.select_box{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding:10px;
+    padding-top:0px;
+    padding-bottom: 0px; 
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    font-size: 50%;
+    color: #636363;
+}
+
+div.radio_box{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding:20px;
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    font-size: 50%;
+    color: #636363;
+}
+
+div.quick_info{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    padding:15px;
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    color: #636363;
+}
+
+div.quick_info_box{
+    margin: 20px;
+    padding:15px;
+    width: 48%;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
+    background-color: #F2655A;
+    font-size: 150%;
+    color: white;
+    height: auto;
+}
+
+textarea {
+   resize:none;
+}
+
+.large-text textarea {
+    resize:none;
+    height: 10em;
+ }
+
+.quarter_prof{
+    display: inline-block;
+    font-size: 65%;
+}
+
+#edit-butt{
+    float:right;
+    display: inline-block;
+    color:#F2655A;
+    transition: all 0.5s ease-in-out;
+}
+
+#edit-butt:hover{
+    float:right;
+    display: inline-block;
+    color: rgb(209, 82, 73);
+    transform: scale(1.2,1.2);
+}
+
+div.tips{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    height: auto;
+    padding:15px;
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    color: #636363;
+}
+
+.styled-select select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    font-size:120%;
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    color: #636363;
+}
+
+
+#tip-title{
+    margin-bottom: 10px;
+    display: inline-block;
+}
+#save-butt{
+    font-size: 65%;
+    color: white;    
+}
+
+#tip-content{
+    margin-top: 10px;
+}
+
+#white-space{
+    height: 30px;
 }

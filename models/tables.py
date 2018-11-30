@@ -12,3 +12,49 @@
 
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
+
+
+import datetime
+
+def get_user_email():
+    return None if auth.user is None else auth.user.email
+
+def get_current_time():
+    return datetime.datetime.utcnow()
+
+
+# Course Table
+db.define_table('course',
+                Field('course_code', 'text'),
+                Field('course_title'),
+                Field('difficulty_rating', 'integer', default=None),
+                Field('work_avg', 'integer', default=None),
+                Field('post_count', "integer", default=0),
+                Field('attendance', 'boolean', default=None),
+                Field('webcast', 'boolean', default=None)
+                )
+
+
+db.define_table('tips',
+                Field('course_code', 'text'),
+                Field('tip_author', default=get_user_email()),
+                Field('tip_professor', 'text'),
+                Field('tip_content', 'text'),
+                Field('tip_time', default=get_current_time()),
+                Field('tip_quarter', 'text', default=None)
+                )
+
+db.define_table('logs',
+                Field('course_code', 'text'),
+                Field('log_author', default=get_user_email()),
+                Field('log_professor', 'text'),
+                Field('log_content', 'text'),
+                Field('log_time', default=get_current_time()),
+                Field('log_quarter', 'text', default=None)
+                )
+
+# current page table
+db.define_table('current_page',
+                Field('curr_page', 'text')
+                )
+

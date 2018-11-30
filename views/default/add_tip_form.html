@@ -1,0 +1,144 @@
+{{extend 'layout.html'}}
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+<script>
+    var add_tip_url = "{{=URL('api', 'add_tip', user_signature=True)}}";
+    var dup_course_url = "{{=URL('api', 'check_dup')}}";
+    var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
+</script>
+{{end}}
+<div class="add_class_form_outer_box">
+    <p>Add Tip</p>
+
+    <div class="add_class_form" id="vue-div4">
+
+        <div class="add_class_form_box">
+            <p>Course Professor</p>
+            <textarea v-model="tipProf" placeholder="e.g. 'Luca de Alfaro'"></textarea>
+        </div>
+
+        <!-- SHOULD RPOBABLY WRITE A FUNCTION THAT CALCUATES THE CURRENT
+             THE CURRENT YEAR AND DOES A FOR-LOOP TO CREATE QUARTERS FOR EACH
+             ACAMEDIC YEAR FOR THE PAST ~4 YEARS BUT COULD ALSO JUST LEAVE IT
+             HARD-CODED-->
+        <div class="add_class_form_box "style="display:inline-block">
+            <p>Quarter</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select style="width: 48%;" v-model="tipQuarter">
+                        <option disabled value="">Quarter</option>
+                        <option>Fall</option>
+                        <option>Winter</option>
+                        <option>Spring</option>
+                        <option>Summer</option>
+                    </select>
+                    <select style="width: 48%;" v-model="tipYear">
+                            <option disabled value="">Year</option>
+                            <option>2018</option>
+                            <option>2017</option>
+                            <option>2016</option>
+                            <option>2015</option>
+                            <option>2014</option>
+                            <option>2013</option>
+                            <option>2012</option>
+                            <option>2011</option>
+                            <option>2010</option>
+                            <option>2009</option>
+                            <option>2008</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="add_class_form_box" style="display:inline-block">
+            <p>Difficulty Rating</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select v-model="diffRating">
+                        <option disabled value="">1 is least difficult, 5 is most difficult</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="add_class_form_box" style="display:inline-block">
+            <p>Hours of Work Per Week</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select v-model="workAvg">
+                        <option disabled value="">Choose hours of work per week</option>
+                        <option>2</option>
+                        <option>4</option>
+                        <option>6</option>
+                        <option>8</option>
+                        <option>10</option>
+                        <option>12</option>
+                        <option>15</option>
+                        <option>18</option>
+                        <option>21</option>
+                        <option>25</option>
+                        <option>30</option>
+                        <option>35</option>
+                        <option>40</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="add_class_form_box" style="display:inline-block">
+            <p>Other Info</p>
+             <div class="radio_box">
+                <input type="checkbox" v-model="attCheck" id="att-checkbox">
+                <label for="att-checkbox">Attendance Taken</label>
+                 <input type="checkbox" v-model="webCheck" id="web-checkbox">
+                <label for="web-checkbox">Webcasts Available</label>
+             </div>
+        </div>
+
+        <div class="add_class_form_box large-text" style="width: 98%">
+            <p>Tip Content</p>
+            <textarea v-model="tipContent" placeholder="e.g.'Write any tips related to this course here'"></textarea>
+        </div>
+        <div class="new-butt">
+            <button id="add-tip" v-on:click="addTip">Submit</button>
+        </div>
+
+    </div>
+</div>
+<script src="{{=URL('static', 'js/add_tip.js')}}"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

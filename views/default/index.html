@@ -1,11 +1,48 @@
 {{extend 'layout.html'}}
 
 {{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+<script>
+    var add_course_url = "{{=URL('api', 'add_post', user_signature=True)}}";
+    var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
+    var current_user = "{{= 'false' if auth.user is None else auth.user.email}}";
+    var get_course_list_url = "{{=URL('api', 'get_course_list')}}";
+    var class_page_url = "{{=URL('api', 'set_page')}}";
+</script>
 {{end}}
 
-<div class="main_content">
+<a href="{{=URL('default', 'add_class_form')}}">
+    <div class="new-butt">
+        <button>
+            <i class="fas fa-plus"></i>
+            Add Class
+        </button>
+    </div>
+</a>
 
-  <!-- Here goes your main HTML code. -->
+<main>
+    <div id="vue-div">
+        <div v-if="course_list.length>0" v-for="course in course_list">
+            <div class="class_box" v-on:click="class_page(course.course_code)">
+                ${course.course_code}
+                <div class="class_info">
+                    <p>${course.course_title}</p>
+                    <p>Contributions: ${course.post_count}</p>
+                    <p style="display:inline">Difficulty:</p>
+                    <div style="display:inline" v-for="i in 5">
+                        <div v-if="i <= course.difficulty_rating" style="display: inline">
+                            <i class="fas fa-pray" style="color:#f2918a"></i>
+                        </div>
+                        <div v-else style="display: inline">
+                            <i class="fas fa-pray" style="color:lightgray"></i>
+                        </div>
 
-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div id="white-space"></div>
 
+<script src="{{=URL('static', 'js/default_index.js')}}"></script>
