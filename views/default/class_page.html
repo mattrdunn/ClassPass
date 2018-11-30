@@ -57,7 +57,7 @@
 		</a>
         <div v-if="tipList.length>0" v-for="tip in tipList">
             <div class="tips">
-                <b class="quarter_prof"> ${tip.tip_professor} ${tip.tip_quarter} </b>
+                <b class="quarter_prof"> ${tip.tip_professor}&#8195; ${tip.tip_quarter} </b>
                 <div id= "edit-butt"v-if="curr_user == tip.tip_author">
                     <i style="color:#F2655A" class="fas fa-edit" 
                 v-on:click="enableEdit(tip.tip_author,tip.tip_time,'tipList')"></i>
@@ -85,7 +85,7 @@
 		</a>
         <div v-if="logList.length>0" v-for="log in logList">
             <div class="tips">
-                <b class="quarter_prof"> ${log.log_professor} ${log.log_quarter} </b>
+                <b class="quarter_prof"> ${log.log_professor}&#8195;${log.log_quarter} </b>
                 <div id= "edit-butt"v-if="curr_user == log.log_author">
                     <i style="color:#F2655A" class="fas fa-edit" 
                 v-on:click="enableEdit(log.log_author,log.log_time,'logList')"></i>
