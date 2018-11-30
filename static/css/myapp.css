@@ -14,6 +14,15 @@ div.top_bar{
     font-size: 65%;
     color: white;
     float: right;
+    transition: all 0.5s ease-in-out;
+}
+
+
+#add:hover{
+    font-size: 65%;
+    color: white;
+    float: right;
+    transform: scale(1.1,1.1);
 }
 
 .small_title{
@@ -30,7 +39,7 @@ div.class_box{
     background-color: #F2655A;
     font-size: 250%;
     color: white;
-    transition: all .2s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 
@@ -40,13 +49,12 @@ div.class_box:hover{
     width: 20rem;
     height:17rem;
     font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
-    background-color: rgb(204, 89, 81);
+    background-color: rgb(209, 82, 73);
     font-size: 250%;
     color: white;
-    transform: scale(1.05,1.05) ;
+    transform: scale(1.05,1.05);
+
 }
-
-
 
 div.class_info{
     margin-top: 10px;
