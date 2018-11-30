@@ -104,8 +104,10 @@
             <p>Tip Content</p>
             <textarea v-model="tipContent" placeholder="e.g.'Write any tips related to this course here'"></textarea>
         </div>
+        <div class="new-butt">
+            <button id="add-tip" v-on:click="addTip">Submit</button>
+        </div>
 
-        <button id="add-tip" v-on:click="addTip">Submit</button>
     </div>
 </div>
 <script src="{{=URL('static', 'js/add_tip.js')}}"></script>

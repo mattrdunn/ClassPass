@@ -59,13 +59,15 @@
             <div class="tips">
                 <b class="quarter_prof"> ${tip.tip_professor}&#8195; ${tip.tip_quarter} </b>
                 <div id= "edit-butt"v-if="curr_user == tip.tip_author">
-                    <i style="color:#F2655A" class="fas fa-edit" 
+                    <i class="fas fa-edit" 
                 v-on:click="enableEdit(tip.tip_author,tip.tip_time,'tipList')"></i>
                 </div>
                 <p id="tip-content" v-if="!tip.editStatus">${tip.tip_content}</p>
                 <p v-if="tip.editStatus">
                     <textarea v-model="tip.tip_content"></textarea>
-                    <button id="save-butt" v-on:click="editTip(tip.tip_author,tip.tip_time)">Save</button>
+                    <element class="new-butt">
+                        <button class="new-butt" id="save-butt" v-on:click="editTip(tip.tip_author,tip.tip_time)">Save</button>
+                    </element>
                 </p>
             </div>
         </div>
@@ -93,7 +95,9 @@
                 <p id="tip-content" v-if="!log.editStatus">${log.log_content}</p>
                 <p v-if="log.editStatus">
                     <textarea v-model="log.log_content"></textarea>
-                    <button id="save-butt" v-on:click="editLog(log.log_author,log.log_time)">Save</button>
+                    <element class="new-butt">
+                        <button id="save-butt" v-on:click="editLog(log.log_author,log.log_time)">Save</button>
+                    </element>
                 </p>
             </div>
         </div>

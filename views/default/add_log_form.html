@@ -104,8 +104,9 @@
             <p>Course Logistics Content</p>
             <textarea v-model="logContent" placeholder="e.g.'Write any logistics related to this course here'"></textarea>
         </div>
-
-        <button id="add-tip" v-on:click="addLog">Submit</button>
+        <div class="new-butt">
+            <button id="add-tip" v-on:click="addLog">Submit</button>
+        </div>
     </div>
 </div>
 <script src="{{=URL('static', 'js/add_log.js')}}"></script>
