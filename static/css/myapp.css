@@ -30,7 +30,23 @@ div.class_box{
     background-color: #F2655A;
     font-size: 250%;
     color: white;
+    transition: all .2s ease-in-out;
 }
+
+
+div.class_box:hover{
+    margin: 15px;
+    padding:15px;
+    width: 20rem;
+    height:17rem;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
+    background-color: rgb(204, 89, 81);
+    font-size: 250%;
+    color: white;
+    transform: scale(1.05,1.05) ;
+}
+
+
 
 div.class_info{
     margin-top: 10px;
