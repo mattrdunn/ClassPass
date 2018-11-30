@@ -16,13 +16,13 @@
     {{include "web2py_ajax.html"}}
     {{block head}}{{end}}
   </head>
-  <body class="orange2">
+  <body class="orange">
     {{if response.flash:}}
     <div class="w2p_flash">
       {{=response.flash}}
     </div>
     {{pass}}
-    <header class="orange padded">
+    <header class="orange2 padded">
         <div class = top_bar>
             <a href="{{=URL('default', 'index')}}">
                 <img width="40"height="40" src={{=URL('static', 'images/logo.png')}}>
@@ -52,7 +52,7 @@
     <footer class="orange">
       <div class="container padded max900">
         <div class="fill">
-          Copyright @ 2018 by Joseph Darren & Matt
+          Copyright @ 2018 by Joseph Darren & Matthew
         </div>
       </div>
     </footer>

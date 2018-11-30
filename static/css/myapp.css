@@ -107,7 +107,7 @@ div.add_class_form_outer_box{
     padding:15px;
     width: 100%;
     font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
-    background-color: #F2655A;
+    background-color: #f2918a;
     font-size: 250%;
     color: white;
 }
@@ -127,7 +127,19 @@ div.add_class_form{
 div.select_box{
     margin-top: 10px;
     margin-bottom: 10px;
-    padding:15px;
+    padding:10px;
+    padding-top:0px;
+    padding-bottom: 0px; 
+    background-color:white;
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+    font-size: 50%;
+    color: #636363;
+}
+
+div.radio_box{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding:20px;
     background-color:white;
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
     font-size: 50%;
@@ -197,7 +209,6 @@ div.tips{
     margin-top: 10px;
     margin-bottom: 10px;
     height: auto;
-    padding:15px;
     font-size:120%;
     background-color:white;
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
