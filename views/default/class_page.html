@@ -89,7 +89,7 @@
             <div class="tips">
                 <b class="quarter_prof"> ${log.log_professor}&#8195;${log.log_quarter} </b>
                 <div id= "edit-butt"v-if="curr_user == log.log_author">
-                    <i style="color:#F2655A" class="fas fa-edit" 
+                    <i class="fas fa-edit" 
                 v-on:click="enableEdit(log.log_author,log.log_time,'logList')"></i>
                 </div>
                 <p id="tip-content" v-if="!log.editStatus">${log.log_content}</p>
