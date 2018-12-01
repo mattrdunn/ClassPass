@@ -131,7 +131,8 @@ var app = function() {
             if(author === tipList[i].tip_author && time === tipList[i].tip_time)
             {
                 $.post(edit_tip_url,{
-                    tip_content: tipList[i].tip_content
+                    tip_content: tipList[i].tip_content,
+                    tip_time: tipList[i].tip_time
                 }, function(data){
                     self.enableEdit(author,time,'tipList');
                 }
