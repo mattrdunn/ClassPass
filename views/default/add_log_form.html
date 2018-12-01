@@ -91,8 +91,54 @@
         </div>
 
         <div class="add_class_form_box"style="display:inline-block">
+            <p>Number of Homework Assignments</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select v-model="numAsgn">
+                        <option disabled value="">Choose number of homework assignments</option>
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                    </select>
+                </div>    
+            </div>
+        </div>
+
+        <div class="add_class_form_box"style="display:inline-block">
+            <p>Number of Midterms</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select v-model="numMidterm">
+                        <option disabled value="">Choose number of midterms</option>
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>    
+            </div>
+        </div>
+
+        <div class="add_class_form_box"style="display:inline-block">
             <p>Other Info</p>
              <div class="radio_box">
+                <input type="checkbox" v-model="finalCheck" id="att-checkbox">
+                <label for="final-checkbox">Final Examination</label>
                 <input type="checkbox" v-model="attCheck" id="att-checkbox">
                 <label for="att-checkbox">Attendance Taken</label>
                  <input type="checkbox" v-model="webCheck" id="web-checkbox">

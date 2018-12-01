@@ -20,7 +20,9 @@ var app = function() {
             self.vue.logQuarter === "" || self.vue.logYear === "" ||
             self.vue.diffRating === "Choose the quarter when you took this class" ||
             self.vue.diffRating == "Choose a difficulty rating" ||
-            self.vue.workAvg =="Choose hours of work per week" || self.vue.workAvg === "")
+            self.vue.workAvg =="Choose hours of work per week" || self.vue.workAvg === "" ||
+            self.vue.numAsgn == "Choose number of homework assignments" || 
+            self.vue.numMidterm == "Choose number of midterms")
         {
             console.log(self.vue.logContent);
             console.log(self.vue.logProf);
@@ -29,6 +31,8 @@ var app = function() {
             console.log(self.vue.workAvg);
             console.log(self.vue.attCheck);
             console.log(self.vue.webCheck);
+            console.log(self.vue.numAsgn);
+            console.log(self.vue.numMidterm);
             alert("Please fill out all of the fields in your submission");
         }
         else
@@ -44,6 +48,9 @@ var app = function() {
                     work_avg: self.vue.workAvg,
                     attendance: self.vue.attCheck,
                     webcast: self.vue.webCheck,
+                    log_asgn: self.vue.numAsgn,
+                    log_midterm: self.vue.numMidterm,
+                    log_final: self.vue.finalCheck
                 },
                 function() {
                     self.vue.logContent = "";
@@ -53,7 +60,10 @@ var app = function() {
                     self.vue.workAvg = "";
                     self.vue.attCheck = "";
                     self.vue.webCheck = "";
-                    // Calls default.py/class_page and loads class_page.html without an ability to hit "back" and return to add_class_form.html
+                    self.vue.numAsgn = "";
+                    self.vue.numMidterm = "";
+                    self.vue.finalCheck = "";
+                            // Calls default.py/index and loads index.html without an ability to hit "back" and return to add_class_form.html
                     window.location.replace("class_page");
                 }
             );
@@ -74,6 +84,9 @@ var app = function() {
             workAvg: "",
             attCheck: false,
             webCheck: false,
+            numAsgn: "",
+            numMidterm: "",
+            finalCheck: false,
         },
         methods: {
             addLog: self.addLog,

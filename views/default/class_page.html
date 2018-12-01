@@ -92,6 +92,8 @@
         <div v-if="logList.length>0" v-for="log in logList">
             <div class="tips">
                 <b class="quarter_prof"> ${log.log_professor}&#8195;${log.log_quarter} </b>
+                <b class="quarter_prof" v-if="!log.log_final">Assignments: ${log.log_asgn}&#8195;Midterms: ${log.log_midterm}&#8195;Final: No</b>
+                <b class="quarter_prof" v-if="log.log_final">Assignments: ${log.log_asgn}&#8195;Midterms: ${log.log_midterm}&#8195;Final: Yes</b>
                 <div id= "edit-butt"v-if="curr_user == log.log_author">
                     <i class="fas fa-edit" 
                 v-on:click="enableEdit(log.log_author,log.log_time,'logList')"></i>

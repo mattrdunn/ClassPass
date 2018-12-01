@@ -59,7 +59,10 @@ db.define_table('logs',
                 Field('log_professor', 'text'),
                 Field('log_content', 'text'),
                 Field('log_time', default=get_current_time()),
-                Field('log_quarter', 'text', default=None)
+                Field('log_quarter', 'text', default=None),
+                Field('log_asgn', 'integer', default=0),
+                Field('log_midterm', 'integer', default=1),
+                Field('log_final', 'boolean', default=True),
                 )
 
 # current page table

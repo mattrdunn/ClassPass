@@ -151,7 +151,8 @@ var app = function() {
             if(author === logList[i].log_author && time === logList[i].log_time)
             {
                 $.post(edit_log_url,{
-                    log_content: logList[i].log_content
+                    log_content: logList[i].log_content,
+                    log_time: logList[i].log_time
                 }, function(data){
                     self.enableEdit(author,time,'logList');
                 }

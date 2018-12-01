@@ -196,6 +196,9 @@ def add_logs():
         log_professor=request.vars.log_professor,
         log_content=request.vars.log_content,
         log_quarter=request.vars.log_quarter,
+        log_asgn=request.vars.log_asgn,
+        log_midterm=request.vars.log_midterm,
+        log_final=request.vars.log_final
     )
     #TODO: FIX AVERAGEING ALGO
     log_course = db(db.course.course_code == curr_page).select(db.course.ALL)
@@ -224,6 +227,9 @@ def get_logs():
             log_content=row.log_content,
             log_time=row.log_time,
             log_quarter=row.log_quarter,
+            log_asgn=row.log_asgn,
+            log_midterm=row.log_midterm,
+            log_final=row.log_final
         ))
 
     return response.json(dict(log_list=results))
@@ -232,8 +238,9 @@ def get_logs():
 @auth.requires_signature()
 def edit_log():
     content_change = request.vars.log_content
+    log_time = request.vars.log_time
 
     db.logs.update_or_insert(
-        (db.logs.log_author == auth.user.email),
+        (db.logs.log_time == log_time),
         log_content=content_change
     )
