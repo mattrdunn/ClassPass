@@ -145,10 +145,11 @@ def get_tip():
 @auth.requires_signature()
 def edit_tip():
     content_change = request.vars.tip_content
+    tip_time = request.vars.tip_time
 
     db.tips.update_or_insert(
-        (db.tips.tip_author == auth.user.email),
-        tip_content=content_change
+        (db.tips.tip_time == tip_time),
+        tip_content=content_change,
     )
 
 
