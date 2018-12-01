@@ -29,27 +29,37 @@ var app = function() {
         }
         else
         {
-            $.post(add_course_url,
-                // Data we will send
-                {
-                    course_code: self.vue.courseCode,
-                    course_title: self.vue.courseTitle,
-                    difficulty_rating: self.vue.diffRating,
-                    work_avg: self.vue.workAvg,
-                    attendance: self.vue.attCheck,
-                    webcast: self.vue.webCheck,
-                },
-                function() {
-                    self.vue.courseCode = "";
-                    self.vue.courseTitle = "";
-                    self.vue.diffRating = "";
-                    self.vue.workAvg = "";
-                    self.vue.attCheck = "";
-                    self.vue.webCheck = "";
-                            // Calls default.py/index and loads index.html without an ability to hit "back" and return to add_class_form.html
-                    window.location.replace("index");
+            $.get(dup_course_url, {course_code: self.vue.courseCode},
+                function(data){
+                    if(data)
+                        alert("This class already exists.");
+                    else
+                    {
+                        $.post(add_course_url,
+                            // Data we will send
+                            {
+                                course_code: self.vue.courseCode,
+                                course_title: self.vue.courseTitle,
+                                difficulty_rating: self.vue.diffRating,
+                                work_avg: self.vue.workAvg,
+                                attendance: self.vue.attCheck,
+                                webcast: self.vue.webCheck,
+                            },
+                            function() {
+                                self.vue.courseCode = "";
+                                self.vue.courseTitle = "";
+                                self.vue.diffRating = "";
+                                self.vue.workAvg = "";
+                                self.vue.attCheck = "";
+                                self.vue.webCheck = "";
+                                        // Calls default.py/index and loads index.html without an ability to hit "back" and return to add_class_form.html
+                                window.location.replace("index");
+                            }
+                        );
+                    }
                 }
-            );
+                
+            )
         }
     };
 
