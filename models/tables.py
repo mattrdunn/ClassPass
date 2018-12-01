@@ -27,9 +27,9 @@ def get_current_time():
 db.define_table('course',
                 Field('course_code', 'text'),
                 Field('course_title'),
-                Field('difficulty_rating', 'integer', default=None),
-                Field('work_avg', 'integer', default=None),
-                Field('post_count', "integer", default=0),
+                Field('difficulty_rating', 'float', default=0),
+                Field('work_avg', 'float', default=0),
+                Field('post_count', "integer", default=1),
                 Field('attendance', 'boolean', default=None),
                 Field('webcast', 'boolean', default=None)
                 )
