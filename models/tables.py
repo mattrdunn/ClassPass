@@ -29,9 +29,17 @@ db.define_table('course',
                 Field('course_title'),
                 Field('difficulty_rating', 'float', default=0),
                 Field('work_avg', 'float', default=0),
-                Field('post_count', "integer", default=1),
+                Field('post_count', 'integer', default=1),
+                Field('info_count', 'integer', default=1),
                 Field('attendance', 'boolean', default=None),
                 Field('webcast', 'boolean', default=None)
+                )
+
+
+db.define_table('quick_information',
+                Field('info_author', default=get_user_email()),
+                Field('difficulty_rating', 'float'),
+                Field('work_average', 'float')
                 )
 
 
