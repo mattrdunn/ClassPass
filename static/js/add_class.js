@@ -31,7 +31,7 @@ var app = function() {
         {
             $.get(dup_course_url, {course_code: self.vue.courseCode},
                 function(data){
-                    if(data)
+                    if(data == "True")
                         alert("This class already exists.");
                     else
                     {
