@@ -38,8 +38,9 @@ db.define_table('course',
 
 db.define_table('quick_information',
                 Field('info_author', default=get_user_email()),
+                Field('course_code', 'text'),
                 Field('difficulty_rating', 'float'),
-                Field('work_average', 'float')
+                Field('work_avg', 'float')
                 )
 
 

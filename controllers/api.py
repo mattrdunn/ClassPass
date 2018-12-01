@@ -10,6 +10,11 @@ def add_course():
         attendance=request.vars.attendance,
         webcast=request.vars.webcast,
     )
+    db.quick_information.insert(
+        course_code=request.vars.course_code,
+        difficulty_rating=request.vars.difficulty_rating,
+        work_avg=request.vars.work_avg,
+    )
     return
 
 
@@ -83,6 +88,31 @@ def get_page():
 
     return response.json(info)
 
+@auth.requires_signature()
+def add_quick_info():
+    rows = db().select(db.current_page.ALL)
+    curr_page = rows[0].curr_page
+    db.quick_information.insert(
+        course_code=curr_page,
+        difficulty_rating=request.vars.difficulty_rating,
+        work_avg=request.vars.work_avg,
+    )
+    info_course = db(db.course.course_code == curr_page).select(db.course.ALL)
+    ic = info_course[0].info_count + 1
+    wa = 0.0
+    dr = 0.0
+    qi_rows = db(db.quick_information.course_code == curr_page).select(db.quick_information.ALL)
+    for row in qi_rows:
+        wa = wa + row.work_avg
+        dr = dr + row.difficulty_rating
+    wa = wa / ic
+    dr = dr / ic
+    db.course.update_or_insert((db.course.course_code == curr_page),
+                               info_count=ic,
+                               difficulty_rating=dr,
+                               work_avg=wa)
+    return
+
 
 # add tip to database
 # increment db.course.post_count by 1
@@ -98,7 +128,7 @@ def add_tip():
         tip_content=request.vars.tip_content,
         tip_quarter=request.vars.tip_quarter,
     )
-    #TODO: FIX AVERAGEING ALGO
+    # TODO: FIX AVERAGING ALGO
     tip_course = db(db.course.course_code == curr_page).select(db.course.ALL)
     pc = tip_course[0].post_count + 1
     print "PC = ", pc

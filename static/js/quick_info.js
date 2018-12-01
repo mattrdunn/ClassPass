@@ -14,45 +14,26 @@ var app = function() {
 
     /* Course functions */
 
-    self.addLog = function ()
+    self.addInfo = function ()
     {
-        if(self.vue.logContent === "" || self.vue.logProf === "" ||
-            self.vue.logQuarter === "" || self.vue.logYear === "" ||
-            self.vue.diffRating === "Choose the quarter when you took this class" ||
-            self.vue.diffRating == "Choose a difficulty rating" ||
-            self.vue.workAvg =="Choose hours of work per week" || self.vue.workAvg === "")
+        if(self.vue.diffRating == "Choose a difficulty rating" ||
+            self.vue.workAvg =="Choose hours of work per week" || self.vue.workAvg === "" || self.vue.diffRating === "")
         {
-            console.log(self.vue.logContent);
-            console.log(self.vue.logProf);
-            console.log(self.vue.logQuarter);
             console.log(self.vue.diffRating);
             console.log(self.vue.workAvg);
-            console.log(self.vue.attCheck);
-            console.log(self.vue.webCheck);
             alert("Please fill out all of the fields in your submission");
         }
         else
         {
-			self.vue.logQuarter = self.vue.logQuarter + " " + self.vue.logYear;
-            $.post(add_log_url,
+            $.post(add_quick_info_url,
                 // Data we will send
                 {
-                    log_content: self.vue.logContent,
-                    log_professor: self.vue.logProf,
-                    log_quarter: self.vue.logQuarter,
                     difficulty_rating: self.vue.diffRating,
                     work_avg: self.vue.workAvg,
-                    attendance: self.vue.attCheck,
-                    webcast: self.vue.webCheck,
                 },
                 function() {
-                    self.vue.logContent = "";
-                    self.vue.logProf = "";
-                    self.vue.logQuarter = "";
                     self.vue.diffRating = "";
                     self.vue.workAvg = "";
-                    self.vue.attCheck = "";
-                    self.vue.webCheck = "";
                     // Calls default.py/class_page and loads class_page.html without an ability to hit "back" and return to add_class_form.html
                     window.location.replace("class_page");
                 }
@@ -66,17 +47,11 @@ var app = function() {
         delimiters: ['${', '}'],
         unsafeDelimiters: ['!{', '}'],
         data: {
-            logContent: "",
-            logProf: "",
-			logQuarter: "",
-			logYear: "",
-            diffRating: "",
-            workAvg: "",
-            attCheck: false,
-            webCheck: false,
+            diffRating: 0,
+            workAvg: 0,
         },
         methods: {
-            addLog: self.addLog,
+            addInfo: self.addInfo,
         }
     });
 

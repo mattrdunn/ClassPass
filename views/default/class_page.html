@@ -22,6 +22,10 @@
     <!--=====================QUICK INFO SECTION==========================-->
     <div class= "quick_info_box">
         Quick Information
+        <a id="add" href="{{=URL('default', 'quick_info_form')}}">
+			Contribute Info
+			<i class="fas fa-plus"></i>
+		</a>
         <div class="quick_info">
             <div style="display:inline">Difficulty:</div>
             <div style="display:inline" v-for="i in 5">
@@ -32,7 +36,7 @@
                     <i style="color: lightgray" class="fas fa-pray"></i>
                 </div>   
             </div>
-            <div>Average Work Per Week: ${workAvg} Hours </div>
+            <div>Average Work Per Week: ${Math.round(workAvg)} Hours </div>
             <div v-if="attCheck">
                 Attendence Taken: <i class="fa fa-check-circle-o"></i>
             </div>

@@ -88,6 +88,11 @@ def class_page():
 
 
 # returns add_tip_form.html
+def quick_info_form():
+    return dict()
+
+
+# returns add_tip_form.html
 def add_tip_form():
     return dict()
 
