@@ -199,7 +199,8 @@ div.tips{
     margin-top: 10px;
     margin-bottom: 5px;
     height: auto;
-    padding:25px;
+    padding:15px;
+    padding-bottom: 25px;
     background-color:white;
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
     color: #636363;
