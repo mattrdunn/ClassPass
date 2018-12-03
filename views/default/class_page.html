@@ -41,7 +41,7 @@
     </div>
     
     <!--=====================TIP SECTION==========================-->
-    <div class="quick_info_box">
+    <div class="quick_info_box" style="display:inline-block">
 		Tips
 		<a id="add" href="{{=URL('default', 'add_tip_form')}}">
 			Add Tip
@@ -49,7 +49,7 @@
 		</a>
         <div v-if="tipList.length>0" v-for="tip in tipList">
             <div class="tips">
-                <b class="quarter_prof"> ${tip.tip_professor}&#8195; ${tip.tip_quarter} </b>
+                
                 <div id= "edit-butt"v-if="curr_user == tip.tip_author">
                     <i class="fas fa-edit" 
                 v-on:click="enableEdit(tip.tip_author,tip.tip_time,'tipList')"></i>
@@ -61,6 +61,7 @@
                         <button class="new-butt" id="save-butt" v-on:click="editTip(tip.tip_author,tip.tip_time)">Save</button>
                     </element>
                 </p>
+                <b class="quarter_prof" style="float:right"> ${tip.tip_professor}&#8195; ${tip.tip_quarter} </b>
             </div>
         </div>
         <div v-if="tipList.length == 0">
@@ -71,7 +72,7 @@
     </div>
 
     <!--=====================LOGISTICS SECTION==========================-->
-    <div class="quick_info_box">
+    <div class="quick_info_box" style="display:inline-block">
 		Course Logistics
 		<a id="add" href="{{=URL('default', 'add_log_form')}}">
 			Add Logistics
@@ -79,20 +80,21 @@
 		</a>
         <div v-if="logList.length>0" v-for="log in logList">
             <div class="tips">
-                <b class="quarter_prof"> ${log.log_professor}&#8195;${log.log_quarter} </b>
-                <b class="quarter_prof" v-if="!log.log_final">Assignments: ${log.log_asgn}&#8195;Midterms: ${log.log_midterm}&#8195;Final: No</b>
-                <b class="quarter_prof" v-if="log.log_final">Assignments: ${log.log_asgn}&#8195;Midterms: ${log.log_midterm}&#8195;Final: Yes</b>
+                <div><b>Assignments:</b> ${log.log_asgn}</div>
+                <div><b>Midterms:</b> ${log.log_midterm}</div>
+                <div v-if="!log.log_final"><b>Final:</b> No</div>
+                <div  v-if="log.log_final"><b>Final: </b>Yes</div>
                 <div v-if="log.attendance">
-                    Attendence Taken: <i class="fa fa-check-circle-o"></i>
+                    <b>Attendence Taken:</b> <i class="fa fa-check-circle-o"></i>
                 </div>
                 <div v-else>
-                    Attendence Taken: <i class="fa fa-times-circle-o"></i>
+                    <b>Attendence Taken:</b> <i class="fa fa-times-circle-o"></i>
                 </div>
                 <div v-if="log.webcast">
-                    Webcast Available: <i class="fa fa-check-circle-o"></i>
+                    <b>Webcast Available: </b><i class="fa fa-check-circle-o"></i>
                 </div>
                 <div v-else>
-                    Webcast Available: <i class="fa fa-times-circle-o"></i>
+                    <b>Webcast Available: </b><i class="fa fa-times-circle-o"></i>
                 </div>
                 <div id= "edit-butt" v-if="curr_user == log.log_author">
                     <i class="fas fa-edit" 
@@ -105,6 +107,7 @@
                         <button id="save-butt" v-on:click="editLog(log.log_author,log.log_time)">Save</button>
                     </element>
                 </p>
+                <b class="quarter_prof" style="float: right"> ${log.log_professor}&#8195;${log.log_quarter} </b>
             </div>
         </div>
         <div v-if="logList.length == 0">

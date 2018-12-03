@@ -159,7 +159,7 @@ div.quick_info{
 div.quick_info_box{
     margin: 20px;
     padding:15px;
-    width: 48%;
+    width: 20%;
     font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
     background-color: #F2655A;
     font-size: 150%;
@@ -199,7 +199,7 @@ div.tips{
     margin-top: 10px;
     margin-bottom: 5px;
     height: auto;
-    padding:15px;
+    padding:25px;
     background-color:white;
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
     color: #636363;
