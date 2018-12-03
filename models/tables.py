@@ -31,8 +31,6 @@ db.define_table('course',
                 Field('work_avg', 'float', default=0),
                 Field('post_count', 'integer', default=1),
                 Field('info_count', 'integer', default=1),
-                Field('attendance', 'boolean', default=None),
-                Field('webcast', 'boolean', default=None)
                 )
 
 
@@ -63,6 +61,8 @@ db.define_table('logs',
                 Field('log_asgn', 'integer', default=0),
                 Field('log_midterm', 'integer', default=1),
                 Field('log_final', 'boolean', default=True),
+                Field('attendance', 'boolean', default=None),
+                Field('webcast', 'boolean', default=None)
                 )
 
 # current page table

@@ -37,18 +37,6 @@
                 </div>   
             </div>
             <div>Average Work Per Week: ${Math.round(workAvg)} Hours </div>
-            <div v-if="attCheck">
-                Attendence Taken: <i class="fa fa-check-circle-o"></i>
-            </div>
-            <div v-else>
-                Attendence Taken: <i class="fa fa-times-circle-o"></i>
-            </div>
-            <div v-if="webCheck">
-                Webcast Available: <i class="fa fa-check-circle-o"></i>
-            </div>
-            <div v-else>
-                Webcast Available: <i class="fa fa-times-circle-o"></i>
-            </div>
         </div>
     </div>
     
@@ -94,7 +82,19 @@
                 <b class="quarter_prof"> ${log.log_professor}&#8195;${log.log_quarter} </b>
                 <b class="quarter_prof" v-if="!log.log_final">Assignments: ${log.log_asgn}&#8195;Midterms: ${log.log_midterm}&#8195;Final: No</b>
                 <b class="quarter_prof" v-if="log.log_final">Assignments: ${log.log_asgn}&#8195;Midterms: ${log.log_midterm}&#8195;Final: Yes</b>
-                <div id= "edit-butt"v-if="curr_user == log.log_author">
+                <div v-if="log.attendance">
+                    Attendence Taken: <i class="fa fa-check-circle-o"></i>
+                </div>
+                <div v-else>
+                    Attendence Taken: <i class="fa fa-times-circle-o"></i>
+                </div>
+                <div v-if="log.webcast">
+                    Webcast Available: <i class="fa fa-check-circle-o"></i>
+                </div>
+                <div v-else>
+                    Webcast Available: <i class="fa fa-times-circle-o"></i>
+                </div>
+                <div id= "edit-butt" v-if="curr_user == log.log_author">
                     <i class="fas fa-edit" 
                 v-on:click="enableEdit(log.log_author,log.log_time,'logList')"></i>
                 </div>

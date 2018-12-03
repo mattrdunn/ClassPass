@@ -11,16 +11,16 @@
     <p>Add Class</p>
 
     <div class="add_class_form" id="vue-div2">
-        <div class="add_class_form_box"style="display:inline-block">
+        <div class="add_class_form_box" style="display:inline-block">
             <p>Course Code</p>
             <textarea v-model="courseCode" placeholder="e.g.'CMPS 183'"></textarea>
         </div>
-        <div class="add_class_form_box"style="display:inline-block">
+        <div class="add_class_form_box" style="display:inline-block">
             <p>Course Title</p>
             <textarea v-model="courseTitle" placeholder="e.g. 'Web Applications'"></textarea>
         </div>
 
-        <div class="add_class_form_box"style="display:inline-block">
+        <div class="add_class_form_box" style="display:inline-block">
             <p>Difficulty Rating</p>
             <div class="select_box">
                 <div class="styled-select"> 
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <div class="add_class_form_box"style="display:inline-block">
+        <div class="add_class_form_box" style="display:inline-block">
             <p>Hours of Work Per Week</p>
             <div class="select_box">
                 <div class="styled-select"> 
@@ -60,15 +60,6 @@
             </div>
         </div>
 
-        <div class="add_class_form_box"style="display:inline-block">
-            <p>Other Info</p>
-             <div class="radio_box">
-                <input type="checkbox" v-model="attCheck" id="att-checkbox">
-                <label for="att-checkbox">Attendance Taken</label>
-                 <input type="checkbox" v-model="webCheck" id="web-checkbox">
-                <label for="web-checkbox">Webcasts Available</label>
-             </div>
-        </div>
         <div class="new-butt">
             <button id="add-course" v-on:click="addCourse">Submit</button>
         </div>

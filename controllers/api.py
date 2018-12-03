@@ -7,8 +7,6 @@ def add_course():
         course_title=request.vars.course_title,
         difficulty_rating=request.vars.difficulty_rating,
         work_avg=request.vars.work_avg,
-        attendance=request.vars.attendance,
-        webcast=request.vars.webcast,
     )
     db.quick_information.insert(
         course_code=request.vars.course_code,
@@ -82,8 +80,6 @@ def get_page():
                 post_count=row.post_count,
                 difficulty_rating=row.difficulty_rating,
                 work_avg=row.work_avg,
-                attendance=row.attendance,
-                webcast=row.webcast,
             )
 
     return response.json(info)
@@ -185,7 +181,9 @@ def add_logs():
         log_quarter=request.vars.log_quarter,
         log_asgn=request.vars.log_asgn,
         log_midterm=request.vars.log_midterm,
-        log_final=request.vars.log_final
+        log_final=request.vars.log_final,
+        attendance=request.vars.attendance,
+        webcast=request.vars.webcast,
     )
     #TODO: FIX AVERAGEING ALGO
     log_course = db(db.course.course_code == curr_page).select(db.course.ALL)
@@ -214,7 +212,9 @@ def get_logs():
             log_quarter=row.log_quarter,
             log_asgn=row.log_asgn,
             log_midterm=row.log_midterm,
-            log_final=row.log_final
+            log_final=row.log_final,
+            attendance=row.attendance,
+            webcast=row.webcast,
         ))
 
     return response.json(dict(log_list=results))
