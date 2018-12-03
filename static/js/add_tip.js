@@ -17,18 +17,11 @@ var app = function() {
     self.addTip = function ()
     {
         if(self.vue.tipContent === "" || self.vue.tipProf === "" ||
-            self.vue.tipQuarter === "" || self.vue.tipYear === "" ||
-            self.vue.diffRating === "Choose the quarter when you took this class" ||
-            self.vue.diffRating == "Choose a difficulty rating" ||
-            self.vue.workAvg =="Choose hours of work per week" || self.vue.workAvg === "")
+            self.vue.tipQuarter === "" || self.vue.tipYear === "")
         {
             console.log(self.vue.tipContent);
             console.log(self.vue.tipProf);
             console.log(self.vue.tipQuarter);
-            console.log(self.vue.diffRating);
-            console.log(self.vue.workAvg);
-            console.log(self.vue.attCheck);
-            console.log(self.vue.webCheck);
             alert("Please fill out all of the fields in your submission");
         }
         else
@@ -40,20 +33,12 @@ var app = function() {
                     tip_content: self.vue.tipContent,
                     tip_professor: self.vue.tipProf,
                     tip_quarter: self.vue.tipQuarter,
-                    difficulty_rating: self.vue.diffRating,
-                    work_avg: self.vue.workAvg,
-                    attendance: self.vue.attCheck,
-                    webcast: self.vue.webCheck,
                 },
                 function() {
                     self.vue.tipContent = "";
                     self.vue.tipProf = "";
                     self.vue.tipQuarter = "";
                     self.vue.tipYear = "";
-                    self.vue.diffRating = "";
-                    self.vue.workAvg = "";
-                    self.vue.attCheck = "";
-                    self.vue.webCheck = "";
                     // Calls default.py/class_page and loads class_page.html without an ability to hit "back" and return to add_class_form.html
                     window.location.replace("class_page");
                 }
@@ -71,10 +56,6 @@ var app = function() {
             tipProf: "",
             tipQuarter: "",
             tipYear: "",
-            diffRating: "",
-            workAvg: "",
-            attCheck: false,
-            webCheck: false,
         },
         methods: {
             addTip: self.addTip,

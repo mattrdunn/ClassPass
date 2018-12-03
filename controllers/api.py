@@ -131,22 +131,9 @@ def add_tip():
     # TODO: FIX AVERAGING ALGO
     tip_course = db(db.course.course_code == curr_page).select(db.course.ALL)
     pc = tip_course[0].post_count + 1
-    print "PC = ", pc
-    wa = request.vars.work_avg
-    course_wa = tip_course[0].work_avg
-    # plus one for initial creation
-    course_wa = (course_wa + wa) / pc
-    print "Course WA = ", course_wa
-    dr = request.vars.difficulty_rating
-    course_dr = tip_course[0].difficulty_rating
-    # plus one for initial creation
-    course_dr = (course_dr + dr) / pc
-    print "Course DR = ", course_dr
-
     db.course.update_or_insert((db.course.course_code == curr_page),
                                post_count=pc,
-                               difficulty_rating=course_dr,
-                               work_avg=course_wa)
+                               )
     return
 
 
@@ -203,8 +190,6 @@ def add_logs():
     #TODO: FIX AVERAGEING ALGO
     log_course = db(db.course.course_code == curr_page).select(db.course.ALL)
     pc = log_course[0].post_count + 1
-    print "PC = ", pc
-
     db.course.update_or_insert((db.course.course_code == curr_page),
                                post_count=pc,
                                )

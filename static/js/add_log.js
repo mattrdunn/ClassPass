@@ -18,17 +18,12 @@ var app = function() {
     {
         if(self.vue.logContent === "" || self.vue.logProf === "" ||
             self.vue.logQuarter === "" || self.vue.logYear === "" ||
-            self.vue.diffRating === "Choose the quarter when you took this class" ||
-            self.vue.diffRating == "Choose a difficulty rating" ||
-            self.vue.workAvg =="Choose hours of work per week" || self.vue.workAvg === "" ||
             self.vue.numAsgn == "Choose number of homework assignments" || 
             self.vue.numMidterm == "Choose number of midterms")
         {
             console.log(self.vue.logContent);
             console.log(self.vue.logProf);
             console.log(self.vue.logQuarter);
-            console.log(self.vue.diffRating);
-            console.log(self.vue.workAvg);
             console.log(self.vue.attCheck);
             console.log(self.vue.webCheck);
             console.log(self.vue.numAsgn);
@@ -44,8 +39,6 @@ var app = function() {
                     log_content: self.vue.logContent,
                     log_professor: self.vue.logProf,
                     log_quarter: self.vue.logQuarter,
-                    difficulty_rating: self.vue.diffRating,
-                    work_avg: self.vue.workAvg,
                     attendance: self.vue.attCheck,
                     webcast: self.vue.webCheck,
                     log_asgn: self.vue.numAsgn,
@@ -56,8 +49,6 @@ var app = function() {
                     self.vue.logContent = "";
                     self.vue.logProf = "";
                     self.vue.logQuarter = "";
-                    self.vue.diffRating = "";
-                    self.vue.workAvg = "";
                     self.vue.attCheck = "";
                     self.vue.webCheck = "";
                     self.vue.numAsgn = "";
@@ -80,8 +71,6 @@ var app = function() {
             logProf: "",
 			logQuarter: "",
 			logYear: "",
-            diffRating: "",
-            workAvg: "",
             attCheck: false,
             webCheck: false,
             numAsgn: "",

@@ -232,3 +232,7 @@ div.tips{
 #white-space{
     height: 30px;
 }
+
+.label-class {
+    font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
+}
