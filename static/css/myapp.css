@@ -31,11 +31,13 @@ div.top_bar{
 }
 
 .new-butt button{
+    border-radius: 10px;
     transition: all 0.25s ease-in-out;
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
 }
 
 .new-butt button:hover{
+    border-radius: 10px;
     transform: scale(1.05,1.05);
     background-color: rgb(209, 82, 73);
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
@@ -80,6 +82,7 @@ div.class_info{
 }
 
 div.add_class_form_box{
+    border-radius: 10px;
     margin: 10px;
     padding:15px;
     width:48%;
@@ -92,6 +95,7 @@ div.add_class_form_box{
 }
 
 div.add_class_form_box:hover{
+    border-radius: 10px;
     margin: 10px;
     padding:15px;
     width:48%;
@@ -158,6 +162,7 @@ div.quick_info{
 }
 
 div.quick_info_box{
+    border-radius: 10px;
     margin: 20px;
     padding:15px;
     width: 48%;
