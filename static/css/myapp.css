@@ -31,11 +31,13 @@ div.top_bar{
 }
 
 .new-butt button{
+    border-radius: 10px;
     transition: all 0.25s ease-in-out;
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
 }
 
 .new-butt button:hover{
+    border-radius: 10px;
     transform: scale(1.05,1.05);
     background-color: rgb(209, 82, 73);
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
@@ -68,6 +70,7 @@ div.class_box:hover{
 }
 
 div.class_info{
+    
     margin-top: 10px;
     margin-bottom: 10px;
     height:70%;
@@ -79,6 +82,7 @@ div.class_info{
 }
 
 div.add_class_form_box{
+    border-radius: 10px;
     margin: 10px;
     padding:15px;
     width:48%;
@@ -91,6 +95,7 @@ div.add_class_form_box{
 }
 
 div.add_class_form_box:hover{
+    border-radius: 10px;
     margin: 10px;
     padding:15px;
     width:48%;
@@ -157,6 +162,7 @@ div.quick_info{
 }
 
 div.quick_info_box{
+    border-radius: 10px;
     margin: 20px;
     padding:15px;
     width: 48%;
@@ -237,3 +243,56 @@ div.tips{
 .label-class {
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
 }
+/*=====================FLIPCARD STUFF================*/
+.flip-card {
+    background-color: transparent;
+    width: 20rem;
+    height:17rem;
+    margin: 1px;
+     /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg) scale(1.2,1.2);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+      
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    border-radius: 10px;
+    padding:15px;
+    width: 20rem;
+    height:17rem;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
+    background-color: #F2655A;
+    font-size: 250%;
+    color: white;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    border-radius: 10px;
+    padding:15px;
+    width: 20rem;
+    height:17rem;
+    font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
+    background-color: rgb(209, 82, 73);
+    font-size: 250%;
+    color: white;
+    transform: rotateY(180deg);
+  }
