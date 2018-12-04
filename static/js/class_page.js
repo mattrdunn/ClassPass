@@ -28,6 +28,9 @@ var app = function() {
                 self.vue.workAvg = data.work_avg;
                 self.vue.attCheck = data.attendance;
                 self.vue.webCheck = data.webcast;
+                self.vue.hwRating = data.hw_difficulty;
+                self.vue.midtermRating = data.midterm_difficulty;
+                self.vue.finalRating = data.final_difficulty;
             }
         );
     };
@@ -176,7 +179,10 @@ var app = function() {
             webCheck: false,
             currPage: null,
             tipList: [],
-            logList:[],
+            logList: [],
+            hwRating: "",
+            midtermRating: "",
+            finalRating: "",
         },
         methods: {
             getCourse: self.getCourse,

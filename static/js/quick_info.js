@@ -1,4 +1,4 @@
-// This is the js for the default/add_class_form.html view.
+// This is the js for the default/quick_info_form.html view.
 var app = function() {
     var self = {};
 
@@ -30,10 +30,17 @@ var app = function() {
                 {
                     difficulty_rating: self.vue.diffRating,
                     work_avg: self.vue.workAvg,
+                    hw_difficulty: self.vue.hwRating,
+                    midterm_difficulty: self.vue.midtermRating,
+                    final_difficulty: self.vue.finalRating,
                 },
                 function() {
                     self.vue.diffRating = "";
                     self.vue.workAvg = "";
+                    self.vue.hwRating = "";
+                    self.vue.midtermRating = "";
+                    self.vue.finalRating = "";
+                    
                     // Calls default.py/class_page and loads class_page.html without an ability to hit "back" and return to add_class_form.html
                     window.location.replace("class_page");
                 }
@@ -49,6 +56,9 @@ var app = function() {
         data: {
             diffRating: 0,
             workAvg: 0,
+            hwRating: 0,
+            midtermRating: 0,
+            finalRating: 0,
         },
         methods: {
             addInfo: self.addInfo,

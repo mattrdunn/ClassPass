@@ -31,6 +31,9 @@ db.define_table('course',
                 Field('work_avg', 'float', default=0),
                 Field('post_count', 'integer', default=1),
                 Field('info_count', 'integer', default=1),
+                Field('hw_difficulty', 'float', default=0),
+                Field('midterm_difficulty', 'float', default=0),
+                Field('final_difficulty', 'float', default=0)
                 )
 
 
@@ -38,7 +41,10 @@ db.define_table('quick_information',
                 Field('info_author', default=get_user_email()),
                 Field('course_code', 'text'),
                 Field('difficulty_rating', 'float'),
-                Field('work_avg', 'float')
+                Field('work_avg', 'float'),
+                Field('hw_difficulty', 'float'),
+                Field('midterm_difficulty', 'float'),
+                Field('final_difficulty', 'float'),
                 )
 
 

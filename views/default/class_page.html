@@ -27,7 +27,7 @@
 			<i class="fas fa-plus"></i>
 		</a>
         <div class="quick_info">
-            <div style="display:inline">Difficulty:</div>
+            <div style="display:inline">Class Difficulty:</div>
             <div style="display:inline" v-for="i in 5">
                 <div v-if="i <= diffRating" style="display:inline">
                     <i style="color: #f2918a" class="fas fa-pray"></i>
@@ -36,6 +36,40 @@
                     <i style="color: lightgray" class="fas fa-pray"></i>
                 </div>   
             </div>
+
+            <div>Homework Difficulty:
+                <div style="display:inline" v-for="i in 5">
+                    <div v-if="i <= hwRating" style="display:inline">
+                        <i style="color: #f2918a" class="fas fa-pray"></i>
+                    </div>
+                    <div v-else style="display:inline">
+                        <i style="color: lightgray" class="fas fa-pray"></i>
+                    </div>   
+                </div>
+            </div>
+
+            <div>Midterm Exam Difficulty:
+                <div style="display:inline" v-for="i in 5">
+                    <div v-if="i <= midtermRating" style="display:inline">
+                        <i style="color: #f2918a" class="fas fa-pray"></i>
+                    </div>
+                    <div v-else style="display:inline">
+                        <i style="color: lightgray" class="fas fa-pray"></i>
+                    </div>   
+                </div>
+            </div>
+
+            <div>Final Exam Difficulty:
+                <div style="display:inline" v-for="i in 5">
+                    <div v-if="i <= finalRating" style="display:inline">
+                        <i style="color: #f2918a" class="fas fa-pray"></i>
+                    </div>
+                    <div v-else style="display:inline">
+                        <i style="color: lightgray" class="fas fa-pray"></i>
+                    </div>   
+                </div>
+            </div>
+            
             <div>Average Work Per Week: ${Math.round(workAvg)} Hours </div>
         </div>
     </div>

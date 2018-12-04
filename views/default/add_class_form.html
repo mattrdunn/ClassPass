@@ -21,7 +21,7 @@
         </div>
 
         <div class="add_class_form_box" style="display:inline-block">
-            <p>Difficulty Rating</p>
+            <p>Class Difficulty Rating</p>
             <div class="select_box">
                 <div class="styled-select"> 
                     <select v-model="diffRating">
@@ -55,6 +55,54 @@
                         <option>30</option>
                         <option>35</option>
                         <option>40</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="add_class_form_box" style="display:inline-block">
+            <p>Homework Difficulty Rating</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select v-model="hwRating">
+                        <option disabled value="">1 being least difficult, 5 being most difficult</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="add_class_form_box" style="display:inline-block">
+            <p>Midterm Examination Difficulty Rating</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select v-model="midtermRating">
+                        <option disabled value="">1 being least difficult, 5 being most difficult</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="add_class_form_box" style="display:inline-block">
+            <p>Final Examination Difficulty Rating</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select v-model="finalRating">
+                        <option disabled value="">1 being least difficult, 5 being most difficult</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
                     </select>
                 </div>
             </div>

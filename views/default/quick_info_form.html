@@ -7,7 +7,7 @@
 </script>
 {{end}}
 <div class="add_class_form_outer_box">
-    <p>Add Difficulty and Average Work Hours</p>
+    <p>Add Difficulty and Other Major Details</p>
 
     <div class="add_class_form" id="vue-div4">
 
@@ -50,6 +50,55 @@
                 </div>
             </div>
         </div>
+
+        <div class="add_class_form_box" style="display:inline-block">
+            <p>Homework Difficulty Rating</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select v-model="hwRating">
+                        <option disabled value="">1 being least difficult, 5 being most difficult</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="add_class_form_box" style="display:inline-block">
+            <p>Midterm Examination Difficulty Rating</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select v-model="midtermRating">
+                        <option disabled value="">1 being least difficult, 5 being most difficult</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="add_class_form_box" style="display:inline-block">
+            <p>Final Examination Difficulty Rating</p>
+            <div class="select_box">
+                <div class="styled-select"> 
+                    <select v-model="finalRating">
+                        <option disabled value="">1 being least difficult, 5 being most difficult</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
 
         <div class="new-butt">
             <button id="add-tip" v-on:click="addInfo">Submit</button>

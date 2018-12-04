@@ -7,11 +7,18 @@ def add_course():
         course_title=request.vars.course_title,
         difficulty_rating=request.vars.difficulty_rating,
         work_avg=request.vars.work_avg,
+        hw_difficulty=request.vars.hw_difficulty,
+        midterm_difficulty=request.vars.midterm_difficulty,
+        final_difficulty=request.vars.final_difficulty,
+
     )
     db.quick_information.insert(
         course_code=request.vars.course_code,
         difficulty_rating=request.vars.difficulty_rating,
         work_avg=request.vars.work_avg,
+        hw_difficulty=request.vars.hw_difficulty,
+        midterm_difficulty=request.vars.midterm_difficulty,
+        final_difficulty=request.vars.final_difficulty,
     )
     return
 
@@ -29,6 +36,9 @@ def get_course_list():
                 course_title=row.course_title,
                 post_count=row.post_count,
                 difficulty_rating=row.difficulty_rating,
+                hw_difficulty=row.hw_difficulty,
+                midterm_difficulty=row.midterm_difficulty,
+                final_difficulty=row.final_difficulty,
             ))
     else:
         # Logged in functionality
@@ -39,6 +49,9 @@ def get_course_list():
                 course_title=row.course_title,
                 post_count=row.post_count,
                 difficulty_rating=row.difficulty_rating,
+                hw_difficulty=row.hw_difficulty,
+                midterm_difficulty=row.midterm_difficulty,
+                final_difficulty=row.final_difficulty,
             ))
 
     return response.json(dict(course_list=results))
@@ -80,6 +93,9 @@ def get_page():
                 post_count=row.post_count,
                 difficulty_rating=row.difficulty_rating,
                 work_avg=row.work_avg,
+                hw_difficulty=row.hw_difficulty,
+                midterm_difficulty=row.midterm_difficulty,
+                final_difficulty=row.final_difficulty,
             )
 
     return response.json(info)
@@ -88,26 +104,65 @@ def get_page():
 def add_quick_info():
     rows = db().select(db.current_page.ALL)
     curr_page = rows[0].curr_page
+    print "print1"
     db.quick_information.insert(
         course_code=curr_page,
         difficulty_rating=request.vars.difficulty_rating,
         work_avg=request.vars.work_avg,
+        hw_difficulty=request.vars.hw_difficulty,
+        midterm_difficulty=request.vars.midterm_difficulty,
+        final_difficulty=request.vars.final_difficulty,
     )
+    print "print2"
     info_course = db(db.course.course_code == curr_page).select(db.course.ALL)
     ic = info_course[0].info_count + 1
     wa = 0.0
     dr = 0.0
+    hd = 0.0
+    md = 0.0
+    fd = 0.0
+    print "print3"
     qi_rows = db(db.quick_information.course_code == curr_page).select(db.quick_information.ALL)
+    print "print4"
     for row in qi_rows:
         wa = wa + row.work_avg
         dr = dr + row.difficulty_rating
+        hd = hd + row.hw_difficulty
+        md = md + row.midterm_difficulty
+        fd = fd + row.final_difficulty
+    print "print5"
     wa = wa / ic
     dr = dr / ic
+    hd = hd / ic
+    md = md / ic
+    fd = fd / ic
+    print "print6"
+
+
     db.course.update_or_insert((db.course.course_code == curr_page),
                                info_count=ic,
                                difficulty_rating=dr,
-                               work_avg=wa)
+                               work_avg=wa,
+                               hw_difficulty=hd,
+                               midterm_difficulty=md,
+                               final_difficulty=fd)
+    print "print7"
     return
+
+
+
+# used to edit the quick information table for averaging purposes
+@auth.requires_signature()
+def edit_quick_info():
+    course_code = request.vars.course_code
+    rating_change = request.vars.difficulty_rating
+    work_change = request.var.work_avg
+
+    db.quick_information.update_or_insert(
+        (db.quick_information.course_code == course_code),
+        difficulty_rating = rating_change,
+        work_avg = work_change,
+    )
 
 
 # add tip to database

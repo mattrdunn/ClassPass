@@ -44,6 +44,9 @@ var app = function() {
                                 work_avg: self.vue.workAvg,
                                 attendance: self.vue.attCheck,
                                 webcast: self.vue.webCheck,
+                                hw_difficulty: self.vue.hwRating,
+                                midterm_difficulty: self.vue.midtermRating,
+                                final_difficulty: self.vue.finalRating,
                             },
                             function() {
                                 self.vue.courseCode = "";
@@ -52,6 +55,9 @@ var app = function() {
                                 self.vue.workAvg = "";
                                 self.vue.attCheck = "";
                                 self.vue.webCheck = "";
+                                self.vue.hwRating = "";
+                                self.vue.midtermRating = "";
+                                self.vue.finalRating = "";
                                         // Calls default.py/index and loads index.html without an ability to hit "back" and return to add_class_form.html
                                 window.location.replace("index");
                             }
@@ -76,6 +82,9 @@ var app = function() {
             attCheck: false,
             webCheck: false,
             courseList: [],
+            hwRating: "",
+            midtermRating: "",
+            finalRating: "",
         },
         methods: {
             addCourse: self.addCourse,
