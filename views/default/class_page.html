@@ -22,10 +22,12 @@
     <!--=====================QUICK INFO SECTION==========================-->
     <div class= "quick_info_box" style="display:inline-block">
         Quick Information
-        <a id="add" href="{{=URL('default', 'quick_info_form')}}">
-			Contribute Info
-			<i class="fas fa-plus"></i>
-		</a>
+       <div v-if="is_logged_in == 'true'" class="small-butt">
+            <a id="add" href="{{=URL('default', 'quick_info_form')}}">
+    			Contribute Info
+    			<i class="fas fa-plus"></i>
+    		</a>
+       </div>
         <div class="quick_info">
             <div style="display:inline">Class Difficulty:</div>
             <div style="display:inline" v-for="i in 5">
@@ -77,10 +79,12 @@
     <!--=====================TIP SECTION==========================-->
     <div class="quick_info_box" >
 		Tips
-		<a id="add" href="{{=URL('default', 'add_tip_form')}}">
-			Add Tip
-			<i class="fas fa-plus"></i>
-		</a>
+		<div v-if="is_logged_in == 'true'" class="small-butt">
+		    <a id = "add" href="{{=URL('default', 'add_tip_form')}}">
+    			Add Tip
+    			<i class="fas fa-plus"></i>
+    		</a>
+		</div>
         <div v-if="tipList.length>0" v-for="tip in tipList">
             <div class="tips">
                 
@@ -106,12 +110,14 @@
     </div>
 
     <!--=====================LOGISTICS SECTION==========================-->
-    <div class="quick_info_box" style="display:inline-block">
+    <div class="quick_info_box">
 		Course Logistics
-		<a id="add" href="{{=URL('default', 'add_log_form')}}">
-			Add Logistics
-			<i class="fas fa-plus"></i>
-		</a>
+		<div v-if="is_logged_in == 'true'"class="small-butt">
+		    <a id="add" href="{{=URL('default', 'add_log_form')}}">
+    			Add Logistics
+    			<i class="fas fa-plus"></i>
+    		</a>
+		</div>
         <div v-if="logList.length>0" v-for="log in logList">
             <div class="tips">
                 <div><b>Assignments:</b> ${log.log_asgn}</div>

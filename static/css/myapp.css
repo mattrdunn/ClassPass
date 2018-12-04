@@ -1,4 +1,8 @@
 #vue-div {
+   
+}
+
+.main_page {
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
@@ -24,6 +28,11 @@ div.top_bar{
     color: white;
     float: right;
     transform: scale(1.1,1.1);
+}
+
+.small-butt{
+    color: white;
+    float: right;
 }
 
 .small_title{
@@ -259,7 +268,7 @@ div.tips{
   .flip-card-inner {
     position: relative;
     
-    transition: transform 0.8s;
+    transition: transform 0.6s;
     transform-style: preserve-3d;
   }
   

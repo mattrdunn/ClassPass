@@ -11,81 +11,86 @@
 </script>
 {{end}}
 
-<a href="{{=URL('default', 'add_class_form')}}">
-    <div class="new-butt">
-        <button>
-            <i class="fas fa-plus"></i>
-            Add Class
-        </button>
-    </div>
-</a>
+
 
 <main>
     <div id="vue-div">
-        <div v-if="course_list.length>0" v-for="course in course_list">
-            <div class="flip-card" v-on:click="class_page(course.course_code)">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        ${course.course_code}
-                        <div class= class_info>
-                            <p>${course.course_title}</p>
-                            <p>Contributions: ${course.post_count}</p>
-                        </div>
+        <div v-if="is_logged_in == 'true'">
+                <a href="{{=URL('default', 'add_class_form')}}">
+                    <div class="new-butt">
+                        <button>
+                            <i class="fas fa-plus"></i>
+                            Add Class
+                        </button>
                     </div>
-                    <div class="flip-card-back">
-                        ${course.course_code}
-                        <div class= class_info>
-                            <!-- DIFFRATING -->
-                            <p style="display:inline">Class:</p>
-                            <div style="display:inline" v-for="i in 5">
-                                <div v-if="i <= course.difficulty_rating" style="display: inline">
-                                    <i class="fas fa-pray" style="color:#f2918a"></i>
-                                </div>
-                                <div v-else style="display: inline">
-                                    <i class="fas fa-pray" style="color:lightgray"></i>
-                                </div>
+                </a>
+            </div>
+        <div class="main_page">
+            <div v-if="course_list.length>0" v-for="course in course_list">
+                <div class="flip-card" v-on:click="class_page(course.course_code)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            ${course.course_code}
+                            <div class= class_info>
+                                <p>${course.course_title}</p>
+                                <p>Contributions: ${course.post_count}</p>
                             </div>
-
-                            <!-- HW RATING -->
-                            <p style="display:inline">Homework:</p>
-                            <div style="display:inline" v-for="i in 5">
-                                <div v-if="i <= course.hw_difficulty" style="display: inline">
-                                    <i class="fas fa-pray" style="color:#f2918a"></i>
-                                </div>
-                                <div v-else style="display: inline">
-                                    <i class="fas fa-pray" style="color:lightgray"></i>
-                                </div>
-                            </div>
-
-                            <!-- Miterm RATING -->
-                            <p style="display:inline">Midterm:</p>
-                            <div style="display:inline" v-for="i in 5">
-                                <div v-if="i <= course.midterm_difficulty" style="display: inline">
-                                    <i class="fas fa-pray" style="color:#f2918a"></i>
-                                </div>
-                                <div v-else style="display: inline">
-                                    <i class="fas fa-pray" style="color:lightgray"></i>
-                                </div>
-                            </div>
-
-                            <!-- Final RATING -->
-                            <div>
-                                <p style="display:inline">Final:</p>
+                        </div>
+                        <div class="flip-card-back">
+                            ${course.course_code}
+                            <div class= class_info>
+                                <!-- DIFFRATING -->
+                                <p style="display:inline">Class:</p>
                                 <div style="display:inline" v-for="i in 5">
-                                    <div v-if="i <= course.final_difficulty" style="display: inline">
+                                    <div v-if="i <= course.difficulty_rating" style="display: inline">
                                         <i class="fas fa-pray" style="color:#f2918a"></i>
                                     </div>
                                     <div v-else style="display: inline">
                                         <i class="fas fa-pray" style="color:lightgray"></i>
                                     </div>
                                 </div>
+    
+                                <!-- HW RATING -->
+                                <p style="display:inline">Homework:</p>
+                                <div style="display:inline" v-for="i in 5">
+                                    <div v-if="i <= course.hw_difficulty" style="display: inline">
+                                        <i class="fas fa-pray" style="color:#f2918a"></i>
+                                    </div>
+                                    <div v-else style="display: inline">
+                                        <i class="fas fa-pray" style="color:lightgray"></i>
+                                    </div>
+                                </div>
+    
+                                <!-- Miterm RATING -->
+                                <p style="display:inline">Midterm:</p>
+                                <div style="display:inline" v-for="i in 5">
+                                    <div v-if="i <= course.midterm_difficulty" style="display: inline">
+                                        <i class="fas fa-pray" style="color:#f2918a"></i>
+                                    </div>
+                                    <div v-else style="display: inline">
+                                        <i class="fas fa-pray" style="color:lightgray"></i>
+                                    </div>
+                                </div>
+    
+                                <!-- Final RATING -->
+                                <div>
+                                    <p style="display:inline">Final:</p>
+                                    <div style="display:inline" v-for="i in 5">
+                                        <div v-if="i <= course.final_difficulty" style="display: inline">
+                                            <i class="fas fa-pray" style="color:#f2918a"></i>
+                                        </div>
+                                        <div v-else style="display: inline">
+                                            <i class="fas fa-pray" style="color:lightgray"></i>
+                                        </div>
+                                    </div>
+                                </div>
+    
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div cla>
 
     </div>
 </main>
