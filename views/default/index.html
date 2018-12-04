@@ -23,44 +23,70 @@
 <main>
     <div id="vue-div">
         <div v-if="course_list.length>0" v-for="course in course_list">
-            <div class="class_box" v-on:click="class_page(course.course_code)">
-                ${course.course_code}
-                <div class="class_info">
-                    <p>${course.course_title}</p>
-                    <p>Contributions: ${course.post_count}</p>
-                    <p style="display:inline">Difficulty:</p>
-                    <div style="display:inline" v-for="i in 5">
-                        <div v-if="i <= course.difficulty_rating" style="display: inline">
-                            <i class="fas fa-pray" style="color:#f2918a"></i>
+            <div class="flip-card" v-on:click="class_page(course.course_code)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        ${course.course_code}
+                        <div class= class_info>
+                            <p>${course.course_title}</p>
+                            <p>Contributions: ${course.post_count}</p>
                         </div>
-                        <div v-else style="display: inline">
-                            <i class="fas fa-pray" style="color:lightgray"></i>
-                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        ${course.course_code}
+                        <div class= class_info>
+                            <!-- DIFFRATING -->
+                            <p style="display:inline">Class:</p>
+                            <div style="display:inline" v-for="i in 5">
+                                <div v-if="i <= course.difficulty_rating" style="display: inline">
+                                    <i class="fas fa-pray" style="color:#f2918a"></i>
+                                </div>
+                                <div v-else style="display: inline">
+                                    <i class="fas fa-pray" style="color:lightgray"></i>
+                                </div>
+                            </div>
 
+                            <!-- HW RATING -->
+                            <p style="display:inline">Homework:</p>
+                            <div style="display:inline" v-for="i in 5">
+                                <div v-if="i <= course.hw_difficulty" style="display: inline">
+                                    <i class="fas fa-pray" style="color:#f2918a"></i>
+                                </div>
+                                <div v-else style="display: inline">
+                                    <i class="fas fa-pray" style="color:lightgray"></i>
+                                </div>
+                            </div>
+
+                            <!-- Miterm RATING -->
+                            <p style="display:inline">Midterm:</p>
+                            <div style="display:inline" v-for="i in 5">
+                                <div v-if="i <= course.midterm_difficulty" style="display: inline">
+                                    <i class="fas fa-pray" style="color:#f2918a"></i>
+                                </div>
+                                <div v-else style="display: inline">
+                                    <i class="fas fa-pray" style="color:lightgray"></i>
+                                </div>
+                            </div>
+
+                            <!-- Final RATING -->
+                            <div>
+                                <p style="display:inline">Final:</p>
+                                <div style="display:inline" v-for="i in 5">
+                                    <div v-if="i <= course.final_difficulty" style="display: inline">
+                                        <i class="fas fa-pray" style="color:#f2918a"></i>
+                                    </div>
+                                    <div v-else style="display: inline">
+                                        <i class="fas fa-pray" style="color:lightgray"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    CMPS 121
-                    <div class= class_info>
-                        <p>Mobile Applications</p>
-                        <p>Contributions: 69</p>
-                    </div>
-                </div>
-                <div class="flip-card-back">
-                    Stats
-                    <div class= class_info>
-                            <p>Difficulty: *****</p>
-                            <p>Gorp Rating: *****</p>
-                            <p>Rectal Rating: *****</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </main>
 <div id="white-space"></div>

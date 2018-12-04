@@ -2,6 +2,7 @@
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
+    padding: 10px;
 }
 
 div.top_bar{
@@ -245,10 +246,12 @@ div.tips{
 }
 /*=====================FLIPCARD STUFF================*/
 .flip-card {
+    
     background-color: transparent;
     width: 20rem;
-    height:17rem;
-    margin: 1px;
+    height:14rem;
+    margin: 10px;
+    
      /* Remove this if you don't want the 3D effect */
   }
   
@@ -262,7 +265,7 @@ div.tips{
   
   /* Do an horizontal flip when you move the mouse over the flip box container */
   .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg) scale(1.2,1.2);
+    transform: rotateY(180deg) scale(1.1,1.1);
   }
   
   /* Position the front and back side */
@@ -277,7 +280,7 @@ div.tips{
     border-radius: 10px;
     padding:15px;
     width: 20rem;
-    height:17rem;
+    height:14rem;
     font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
     background-color: #F2655A;
     font-size: 250%;
@@ -289,7 +292,7 @@ div.tips{
     border-radius: 10px;
     padding:15px;
     width: 20rem;
-    height:17rem;
+    height:14rem;
     font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
     background-color: rgb(209, 82, 73);
     font-size: 250%;
