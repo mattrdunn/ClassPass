@@ -183,6 +183,7 @@ var app = function() {
             hwRating: "",
             midtermRating: "",
             finalRating: "",
+            currProf: "All Professors",
         },
         methods: {
             getCourse: self.getCourse,
