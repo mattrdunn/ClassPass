@@ -151,35 +151,71 @@
         		</a>
     		</div>
             <div v-if="logList.length>0" v-for="log in logList">
-                <div class="tips">
-                    <div><b>Assignments:</b> ${log.log_asgn}</div>
-                    <div><b>Midterms:</b> ${log.log_midterm}</div>
-                    <div v-if="!log.log_final"><b>Final:</b> No</div>
-                    <div  v-if="log.log_final"><b>Final: </b>Yes</div>
-                    <div v-if="log.attendance">
-                        <b>Attendence Taken:</b> <i class="fa fa-check-circle-o"></i>
+                <div v-if="currProf == 'All Professors'">
+                    <div class="tips">
+                        <div><b>Assignments:</b> ${log.log_asgn}</div>
+                        <div><b>Midterms:</b> ${log.log_midterm}</div>
+                        <div v-if="!log.log_final"><b>Final:</b> No</div>
+                        <div  v-if="log.log_final"><b>Final: </b>Yes</div>
+                        <div v-if="log.attendance">
+                            <b>Attendence Taken:</b> <i class="fa fa-check-circle-o"></i>
+                        </div>
+                        <div v-else>
+                            <b>Attendence Taken:</b> <i class="fa fa-times-circle-o"></i>
+                        </div>
+                        <div v-if="log.webcast">
+                            <b>Webcast Available: </b><i class="fa fa-check-circle-o"></i>
+                        </div>
+                        <div v-else>
+                            <b>Webcast Available: </b><i class="fa fa-times-circle-o"></i>
+                        </div>
+                        <div id= "edit-butt" v-if="curr_user == log.log_author">
+                            <i class="fas fa-edit" 
+                        v-on:click="enableEdit(log.log_author,log.log_time,'logList')"></i>
+                        </div>
+                        <p id="tip-content" v-if="!log.editStatus">${log.log_content}</p>
+                        <p v-if="log.editStatus">
+                            <textarea v-model="log.log_content"></textarea>
+                            <element class="new-butt">
+                                <button id="save-butt" v-on:click="editLog(log.log_author,log.log_time)">Save</button>
+                            </element>
+                        </p>
+                        <b class="quarter_prof" style="float: right"> ${log.log_professor}&#8195;${log.log_quarter} </b>
                     </div>
-                    <div v-else>
-                        <b>Attendence Taken:</b> <i class="fa fa-times-circle-o"></i>
+                </div>
+                <div v-else>
+                    <div v-if="currProf == log.log_professor">
+                        <div class="tips">
+                            <div><b>Assignments:</b> ${log.log_asgn}</div>
+                            <div><b>Midterms:</b> ${log.log_midterm}</div>
+                            <div v-if="!log.log_final"><b>Final:</b> No</div>
+                            <div  v-if="log.log_final"><b>Final: </b>Yes</div>
+                            <div v-if="log.attendance">
+                                <b>Attendence Taken:</b> <i class="fa fa-check-circle-o"></i>
+                            </div>
+                            <div v-else>
+                                <b>Attendence Taken:</b> <i class="fa fa-times-circle-o"></i>
+                            </div>
+                            <div v-if="log.webcast">
+                                <b>Webcast Available: </b><i class="fa fa-check-circle-o"></i>
+                            </div>
+                            <div v-else>
+                                <b>Webcast Available: </b><i class="fa fa-times-circle-o"></i>
+                            </div>
+                            <div id= "edit-butt" v-if="curr_user == log.log_author">
+                                <i class="fas fa-edit" 
+                            v-on:click="enableEdit(log.log_author,log.log_time,'logList')"></i>
+                            </div>
+                            <p id="tip-content" v-if="!log.editStatus">${log.log_content}</p>
+                            <p v-if="log.editStatus">
+                                <textarea v-model="log.log_content"></textarea>
+                                <element class="new-butt">
+                                    <button id="save-butt" v-on:click="editLog(log.log_author,log.log_time)">Save</button>
+                                </element>
+                            </p>
+                            <b class="quarter_prof" style="float: right"> ${log.log_professor}&#8195;${log.log_quarter} </b>
+                        </div>
                     </div>
-                    <div v-if="log.webcast">
-                        <b>Webcast Available: </b><i class="fa fa-check-circle-o"></i>
-                    </div>
-                    <div v-else>
-                        <b>Webcast Available: </b><i class="fa fa-times-circle-o"></i>
-                    </div>
-                    <div id= "edit-butt" v-if="curr_user == log.log_author">
-                        <i class="fas fa-edit" 
-                    v-on:click="enableEdit(log.log_author,log.log_time,'logList')"></i>
-                    </div>
-                    <p id="tip-content" v-if="!log.editStatus">${log.log_content}</p>
-                    <p v-if="log.editStatus">
-                        <textarea v-model="log.log_content"></textarea>
-                        <element class="new-butt">
-                            <button id="save-butt" v-on:click="editLog(log.log_author,log.log_time)">Save</button>
-                        </element>
-                    </p>
-                    <b class="quarter_prof" style="float: right"> ${log.log_professor}&#8195;${log.log_quarter} </b>
                 </div>
             </div>
             <div v-if="logList.length == 0">
