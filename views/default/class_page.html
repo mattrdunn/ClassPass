@@ -77,17 +77,19 @@
         </div>
     </div>
     <!--=====================SELECT A PROF==========================-->
-    <div class="quick_info_box" style="display: inline-block">
-        Professor
-        <div class="styled-select"> 
-            <select v-model="currProf">
-                <option>All Professors</option>
-                <option v-for="prof in courseProfs">
-                    ${prof}
-                </option>
-            </select>
+    <element v-if="courseProfs.length > 1">
+        <div class="quick_info_box" style="display: inline-block">
+            Professor
+            <div class="styled-select"> 
+                <select v-model="currProf">
+                    <option>All Professors</option>
+                    <option v-for="prof in courseProfs">
+                        ${prof}
+                    </option>
+                </select>
+            </div>
         </div>
-    </div>
+    </element>
     <div class="tips-logs" >
         <!--=====================TIP SECTION==========================-->
         <div class="quick_info_box" style="display: inline-block" >
