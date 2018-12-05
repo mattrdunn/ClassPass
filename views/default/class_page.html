@@ -7,6 +7,7 @@
     var get_tips_url = "{{=URL('api', 'get_tip')}}";
     var edit_tip_url = "{{=URL('api', 'edit_tip', user_signature=True)}}";
     var get_logs_url = "{{=URL('api', 'get_logs')}}";
+    var get_profs_url = "{{=URL('api', 'get_profs')}}";
     var edit_log_url = "{{=URL('api', 'edit_log', user_signature=True)}}";
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
     var curr_user = "{{='false' if auth.user is None else auth.user.email}}";
@@ -81,8 +82,8 @@
         <div class="styled-select"> 
             <select v-model="currProf">
                 <option>All Professors</option>
-                <option v-for="i in 5">
-                        gorp
+                <option v-for="prof in courseProfs">
+                    ${prof}
                 </option>
             </select>
         </div>
@@ -98,20 +99,39 @@
         		</a>
     		</div>
             <div v-if="tipList.length>0" v-for="tip in tipList">
-                <div class="tips">
-                    
-                    <div id= "edit-butt"v-if="curr_user == tip.tip_author">
-                        <i class="fas fa-edit" 
-                    v-on:click="enableEdit(tip.tip_author,tip.tip_time,'tipList')"></i>
+                <div v-if="currProf == 'All Professors'">
+                    <div class="tips">
+                        <div id= "edit-butt" v-if="curr_user == tip.tip_author">
+                            <i class="fas fa-edit" 
+                        v-on:click="enableEdit(tip.tip_author,tip.tip_time,'tipList')"></i>
+                        </div>
+                        <p id="tip-content" v-if="!tip.editStatus">${tip.tip_content}</p>
+                        <p v-if="tip.editStatus">
+                            <textarea v-model="tip.tip_content"></textarea>
+                            <element class="new-butt">
+                                <button class="new-butt" id="save-butt" v-on:click="editTip(tip.tip_author,tip.tip_time)">Save</button>
+                            </element>
+                        </p>
+                        <b class="quarter_prof" style="float:right"> ${tip.tip_professor}&#8195; ${tip.tip_quarter} </b>
                     </div>
-                    <p id="tip-content" v-if="!tip.editStatus">${tip.tip_content}</p>
-                    <p v-if="tip.editStatus">
-                        <textarea v-model="tip.tip_content"></textarea>
-                        <element class="new-butt">
-                            <button class="new-butt" id="save-butt" v-on:click="editTip(tip.tip_author,tip.tip_time)">Save</button>
-                        </element>
-                    </p>
-                    <b class="quarter_prof" style="float:right"> ${tip.tip_professor}&#8195; ${tip.tip_quarter} </b>
+                </div>
+                <div v-else>
+                    <div v-if="currProf == tip.tip_professor">
+                        <div class="tips">
+                            <div id= "edit-butt" v-if="curr_user == tip.tip_author">
+                                <i class="fas fa-edit" 
+                            v-on:click="enableEdit(tip.tip_author,tip.tip_time,'tipList')"></i>
+                            </div>
+                            <p id="tip-content" v-if="!tip.editStatus">${tip.tip_content}</p>
+                            <p v-if="tip.editStatus">
+                                <textarea v-model="tip.tip_content"></textarea>
+                                <element class="new-butt">
+                                    <button class="new-butt" id="save-butt" v-on:click="editTip(tip.tip_author,tip.tip_time)">Save</button>
+                                </element>
+                            </p>
+                            <b class="quarter_prof" style="float:right"> ${tip.tip_professor}&#8195; ${tip.tip_quarter} </b>
+                        </div>  
+                    </div>
                 </div>
             </div>
             <div v-if="tipList.length == 0">

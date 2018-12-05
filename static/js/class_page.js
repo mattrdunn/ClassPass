@@ -165,6 +165,13 @@ var app = function() {
         }
     };
 
+    self.getProfs = function() {
+        $.getJSON(get_profs_url,
+            function(data){
+                self.vue.courseProfs = data.profs;
+        });
+    }
+
 
     self.vue = new Vue({
         el: "#vue-div3",
@@ -184,6 +191,7 @@ var app = function() {
             midtermRating: "",
             finalRating: "",
             currProf: "All Professors",
+            courseProfs: [],
         },
         methods: {
             getCourse: self.getCourse,
@@ -194,6 +202,7 @@ var app = function() {
             getLogs: self.getLogs,
             processLogs: self.processLogs,
             editLog: self.editLog,
+            getProfs: self.getProfs,
         }
     });
 
@@ -205,6 +214,7 @@ var app = function() {
     self.getCourse();
     self.getTips();
     self.getLogs();
+    self.getProfs();
 
     return self;
 };

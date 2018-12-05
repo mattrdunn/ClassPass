@@ -8,8 +8,6 @@
 # Consult manual for more options, validators, etc.
 
 
-
-
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
 
@@ -44,7 +42,7 @@ db.define_table('quick_information',
                 Field('work_avg', 'float'),
                 Field('hw_difficulty', 'float'),
                 Field('midterm_difficulty', 'float'),
-                Field('final_difficulty', 'float'),
+                Field('final_difficulty', 'float')
                 )
 
 

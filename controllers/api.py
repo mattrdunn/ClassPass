@@ -100,6 +100,23 @@ def get_page():
 
     return response.json(info)
 
+
+# gets professors for a class
+def get_profs():
+    profs = []
+    rows = db().select(db.current_page.ALL)
+    curr_page = rows[0].curr_page
+    tips_profs = db(db.tips.course_code == curr_page).select(db.tips.ALL)
+    logs_profs = db(db.logs.course_code == curr_page).select(db.logs.ALL)
+    for row in tips_profs:
+        if row.tip_professor not in profs:
+            profs.append(row.tip_professor)
+    for row in logs_profs:
+        if row.log_professor not in profs:
+            profs.append(row.log_professor)
+    return response.json(dict(profs=profs))
+
+
 @auth.requires_signature()
 def add_quick_info():
     rows = db().select(db.current_page.ALL)
