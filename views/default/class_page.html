@@ -146,7 +146,7 @@
         <!--=====================LOGISTICS SECTION==========================-->
         <div class="quick_info_box"style="display: inline-block">
     		Course Logistics
-    		<div v-if="is_logged_in == 'true'"class="small-butt">
+    		<div v-if="is_logged_in == 'true'" class="small-butt">
     		    <a id="add" href="{{=URL('default', 'add_log_form')}}">
         			Add Logistics
         			<i class="fas fa-plus"></i>
@@ -160,16 +160,16 @@
                         <div v-if="!log.log_final"><b>Final:</b> No</div>
                         <div  v-if="log.log_final"><b>Final: </b>Yes</div>
                         <div v-if="log.attendance">
-                            <b>Attendence Taken:</b> <i class="fa fa-check-circle-o"></i>
+                            <b>Attendence Taken:</b> <i class="fa fa-check-circle-o" style="color: #00FF00"></i>
                         </div>
                         <div v-else>
-                            <b>Attendence Taken:</b> <i class="fa fa-times-circle-o"></i>
+                            <b>Attendence Taken:</b> <i class="fa fa-times-circle-o" style="color: #FF0000"></i>
                         </div>
                         <div v-if="log.webcast">
-                            <b>Webcast Available: </b><i class="fa fa-check-circle-o"></i>
+                            <b>Webcast Available: </b><i class="fa fa-check-circle-o" style="color: #00FF00"></i>
                         </div>
                         <div v-else>
-                            <b>Webcast Available: </b><i class="fa fa-times-circle-o"></i>
+                            <b>Webcast Available: </b><i class="fa fa-times-circle-o" style="color: #FF0000"></i>
                         </div>
                         <div id= "edit-butt" v-if="curr_user == log.log_author">
                             <i class="fas fa-edit" 
@@ -193,16 +193,16 @@
                             <div v-if="!log.log_final"><b>Final:</b> No</div>
                             <div  v-if="log.log_final"><b>Final: </b>Yes</div>
                             <div v-if="log.attendance">
-                                <b>Attendence Taken:</b> <i class="fa fa-check-circle-o"></i>
+                                <b>Attendence Taken:</b> <i class="fa fa-check-circle-o" style="color: #00FF00"></i>
                             </div>
                             <div v-else>
-                                <b>Attendence Taken:</b> <i class="fa fa-times-circle-o"></i>
+                                <b>Attendence Taken:</b> <i class="fa fa-times-circle-o" style="color:#FF0000"></i>
                             </div>
                             <div v-if="log.webcast">
-                                <b>Webcast Available: </b><i class="fa fa-check-circle-o"></i>
+                                <b>Webcast Available: </b><i class="fa fa-check-circle-o" style="color: #00FF00"></i>
                             </div>
                             <div v-else>
-                                <b>Webcast Available: </b><i class="fa fa-times-circle-o"></i>
+                                <b>Webcast Available: </b><i class="fa fa-times-circle-o" style="color:#FF0000"></i>
                             </div>
                             <div id= "edit-butt" v-if="curr_user == log.log_author">
                                 <i class="fas fa-edit" 
