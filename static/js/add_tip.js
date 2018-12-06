@@ -16,7 +16,12 @@ var app = function() {
 
     self.addTip = function ()
     {
-        if(self.vue.tipContent === "" || self.vue.tipProf === "" ||
+        let tp;
+            if(self.vue.currProf != "Add a new professor")
+                tp = self.vue.currProf;
+            else
+                tp = self.vue.tipProf;
+        if(self.vue.tipContent === "" || tp === "" ||
             self.vue.tipQuarter === "" || self.vue.tipYear === "")
         {
             console.log(self.vue.tipContent);
@@ -31,7 +36,7 @@ var app = function() {
                 // Data we will send
                 {
                     tip_content: self.vue.tipContent,
-                    tip_professor: self.vue.tipProf,
+                    tip_professor: tp,
                     tip_quarter: self.vue.tipQuarter,
                 },
                 function() {
@@ -46,6 +51,13 @@ var app = function() {
         }
     };
 
+    self.getProfs = function() {
+        $.getJSON(get_profs_url,
+            function(data){
+                self.vue.courseProfs = data.profs;
+        });
+    }
+
 
     self.vue = new Vue({
         el: "#vue-div4",
@@ -56,17 +68,16 @@ var app = function() {
             tipProf: "",
             tipQuarter: "",
             tipYear: "",
+            currProf: "",
+            courseProfs: [],
         },
         methods: {
             addTip: self.addTip,
+            getProfs: self.getProfs,
         }
     });
 
-    // If we are logged in, shows the form to add posts.
-    if (is_logged_in) {
-        $("#add_post").show();
-    }
-
+    self.getProfs();
 
     return self;
 };

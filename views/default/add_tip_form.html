@@ -5,16 +5,34 @@
     var add_tip_url = "{{=URL('api', 'add_tip', user_signature=True)}}";
     var dup_course_url = "{{=URL('api', 'check_dup')}}";
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
+    var get_profs_url = "{{=URL('api', 'get_profs')}}";
 </script>
 {{end}}
 <div class="add_class_form_outer_box">
     <p>Add Tip</p>
 
     <div class="add_class_form" id="vue-div4">
-
-        <div class="add_class_form_box" style="display:inline-block">
-            <p>Course Professor</p>
-            <textarea v-model="tipProf" placeholder="e.g. 'Luca de Alfaro'"></textarea>
+        <div v-if="courseProfs.length < 1 || currProf == 'Add a new professor'">
+            <div class="add_class_form_box" style="display:inline-block">
+                <p>Course Professor</p>
+                <textarea v-model="tipProf" placeholder="e.g. 'Luca de Alfaro'"></textarea>
+            </div>
+        </div>
+        <div v-else>
+            <div v-if="currProf != 'Add a new professor'">
+                <div class="add_class_form_box" style="display:inline-block">
+                    <p>Course Professor</p>
+                    <div class="styled-select" id="prof_select"> 
+                        <select v-model="currProf">
+                            <option disabled value="">Choose a professor</option>
+                            <option v-for="prof in courseProfs">
+                                ${prof}
+                            </option>
+                            <option>Add a new professor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- SHOULD RPOBABLY WRITE A FUNCTION THAT CALCUATES THE CURRENT

@@ -206,11 +206,6 @@ var app = function() {
         }
     });
 
-    // If we are logged in, shows the form to add posts.
-    if (is_logged_in) {
-        $("#add_post").show();
-    }
-
     self.getCourse();
     self.getTips();
     self.getLogs();
