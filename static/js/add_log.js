@@ -60,7 +60,7 @@ var app = function() {
                     self.vue.numMidterm = "";
                     self.vue.finalCheck = "";
                             // Calls default.py/index and loads index.html without an ability to hit "back" and return to add_class_form.html
-                    window.location.replace("class_page");
+                    window.history.back();
                 }
             );
         }

@@ -45,7 +45,7 @@ var app = function() {
                     self.vue.tipQuarter = "";
                     self.vue.tipYear = "";
                     // Calls default.py/class_page and loads class_page.html without an ability to hit "back" and return to add_class_form.html
-                    window.location.replace("class_page");
+                    window.history.back();
                 }
             );
         }
