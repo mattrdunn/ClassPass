@@ -16,7 +16,12 @@ var app = function() {
 
     self.addLog = function ()
     {
-        if(self.vue.logContent === "" || self.vue.logProf === "" ||
+        let lp;
+        if(self.vue.currProf != "Add a new professor")
+            lp = self.vue.currProf;
+        else
+            lp = self.vue.logProf;
+        if(self.vue.logContent === "" || lp === "" ||
             self.vue.logQuarter === "" || self.vue.logYear === "" ||
             self.vue.numAsgn == "Choose number of homework assignments" || 
             self.vue.numMidterm == "Choose number of midterms")
@@ -37,7 +42,7 @@ var app = function() {
                 // Data we will send
                 {
                     log_content: self.vue.logContent,
-                    log_professor: self.vue.logProf,
+                    log_professor: lp,
                     log_quarter: self.vue.logQuarter,
                     attendance: self.vue.attCheck,
                     webcast: self.vue.webCheck,
@@ -61,6 +66,12 @@ var app = function() {
         }
     };
 
+    self.getProfs = function() {
+        $.getJSON(get_profs_url,
+            function(data){
+                self.vue.courseProfs = data.profs;
+        });
+    }
 
     self.vue = new Vue({
         el: "#vue-div4",
@@ -76,17 +87,16 @@ var app = function() {
             numAsgn: "",
             numMidterm: "",
             finalCheck: false,
+            currProf: "",
+            courseProfs: [],
         },
         methods: {
             addLog: self.addLog,
+            getProfs: self.getProfs,
         }
     });
 
-    // If we are logged in, shows the form to add posts.
-    if (is_logged_in) {
-        $("#add_post").show();
-    }
-
+    self.getProfs();
 
     return self;
 };

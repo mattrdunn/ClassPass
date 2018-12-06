@@ -17,10 +17,10 @@ var app = function() {
     self.addTip = function ()
     {
         let tp;
-            if(self.vue.currProf != "Add a new professor")
-                tp = self.vue.currProf;
-            else
-                tp = self.vue.tipProf;
+        if(self.vue.currProf != "Add a new professor")
+            tp = self.vue.currProf;
+        else
+            tp = self.vue.tipProf;
         if(self.vue.tipContent === "" || tp === "" ||
             self.vue.tipQuarter === "" || self.vue.tipYear === "")
         {
