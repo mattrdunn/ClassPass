@@ -17,6 +17,7 @@
 .tips-logs {
     display: flex;
     justify-content: start;
+    align-items: flex-start;
     flex-wrap: wrap;
 }
 
@@ -52,6 +53,7 @@ div.top_bar{
 }
 
 .new-butt button{
+    margin: 20px 0 0 20px;
     border-radius: 10px;
     transition: all 0.25s ease-in-out;
     font-family: "Montserrat-Light", "Montserrat Light", "Montserrat", Montserrat, Montserrat, "Montserrat Light", sans-serif;
@@ -106,7 +108,7 @@ div.add_class_form_box{
     border-radius: 10px;
     margin: 10px;
     padding:15px;
-    width:48.5%;
+    width:47.5%;
     font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
     background-color: #F2655A;
     font-size: 150%;
@@ -119,7 +121,7 @@ div.add_class_form_box:hover{
     border-radius: 10px;
     margin: 10px;
     padding:15px;
-    width:48.5%;
+    width:47.5%;
     font-family: "Montserrat-Bold", "Montserrat SemiBold", "Montserrat", Montserrat, Montserrat, "Montserrat SemiBold", sans-serif;
     background-color: rgb(209, 82, 73);
     font-size: 150%;
