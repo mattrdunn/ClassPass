@@ -17,15 +17,17 @@ var app = function() {
     self.addTip = function ()
     {
         let tp;
-        if(self.vue.currProf != "Add a new professor")
+        if(self.vue.currProf != "Add a new professor" && self.vue.courseProfs.length > 1){
             tp = self.vue.currProf;
-        else
+        }
+        else{
             tp = self.vue.tipProf;
+        }
         if(self.vue.tipContent === "" || tp === "" ||
             self.vue.tipQuarter === "" || self.vue.tipYear === "")
         {
             console.log(self.vue.tipContent);
-            console.log(self.vue.tipProf);
+            console.log(self.vue.tp);
             console.log(self.vue.tipQuarter);
             alert("Please fill out all of the fields in your submission");
         }
