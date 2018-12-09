@@ -17,7 +17,7 @@ var app = function() {
     self.addLog = function ()
     {
         let lp;
-        if(self.vue.currProf != "Add a new professor")
+        if(self.vue.currProf != "Add a new professor" && self.vue.courseProfs.length > 1)
             lp = self.vue.currProf;
         else
             lp = self.vue.logProf;

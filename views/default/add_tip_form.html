@@ -11,25 +11,27 @@
 <div class="add_class_form_outer_box">
     <p>Add Tip</p>
 
-    <div class="add_class_form" id="vue-div4">
-        <div v-if="courseProfs.length < 1 || currProf == 'Add a new professor'">
-            <div class="add_class_form_box" style="display:inline-block">
-                <p>Course Professor</p>
-                <textarea v-model="tipProf" placeholder="e.g. 'Luca de Alfaro'"></textarea>
-            </div>
-        </div>
-        <div v-else>
-            <div v-if="currProf != 'Add a new professor'">
-                <div class="add_class_form_box" style="display:inline-block">
+    <div class="add_class_form add" id="vue-div4">
+        <div style="display:inline-block" class="add_class_form_box">
+            <div v-if="courseProfs.length < 1 || currProf == 'Add a new professor'">
+                <div>
                     <p>Course Professor</p>
-                    <div class="styled-select" id="prof_select"> 
-                        <select v-model="currProf">
-                            <option disabled value="">Choose a professor</option>
-                            <option v-for="prof in courseProfs">
-                                ${prof}
-                            </option>
-                            <option>Add a new professor</option>
-                        </select>
+                    <textarea v-model="tipProf" placeholder="e.g. 'Luca de Alfaro'"></textarea>
+                </div>
+            </div>
+            <div v-else>
+                <div v-if="currProf != 'Add a new professor'">
+                    <div >
+                        <p>Course Professor</p>
+                        <div class="styled-select" id="prof_select"> 
+                            <select v-model="currProf">
+                                <option disabled value="">Choose a professor</option>
+                                <option v-for="prof in courseProfs">
+                                    ${prof}
+                                </option>
+                                <option>Add a new professor</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
