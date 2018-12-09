@@ -17,7 +17,7 @@ var app = function() {
     self.addLog = function ()
     {
         let lp;
-        if(self.vue.currProf != "Add a new professor" && self.vue.courseProfs.length > 1)
+        if(self.vue.currProf != "Add a new professor" && self.vue.courseProfs.length > 0)
             lp = self.vue.currProf;
         else
             lp = self.vue.logProf;
@@ -26,6 +26,8 @@ var app = function() {
             self.vue.numAsgn == "Choose number of homework assignments" || 
             self.vue.numMidterm == "Choose number of midterms")
         {
+            console.log(lp);
+            console.log(self.vue.currProf);
             console.log(self.vue.logContent);
             console.log(self.vue.logProf);
             console.log(self.vue.logQuarter);
