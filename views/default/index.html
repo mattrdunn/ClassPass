@@ -1,7 +1,6 @@
 {{extend 'layout.html'}}
 
 {{block head}}
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
 <script>
     var add_course_url = "{{=URL('api', 'add_post', user_signature=True)}}";
